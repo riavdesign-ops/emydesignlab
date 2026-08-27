@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EMY Design Lab — Partnership Presentation Deck</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,600;1,300&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-light: #F4F1EA;
+    --bg-dark: #0D0E10;
+    --ink-black: #0E0F12;
+    --ink-gray: #5A5D66;
+    --ink-muted: #9E9EA7;
+    --wine-burgundy: #8B1A2B;
+    --warm-ochre: #E07A28;
+    --warm-ochre-light: #F39C42;
+    --border-light: rgba(14, 15, 18, 0.12);
+    --border-dark: rgba(244, 241, 234, 0.14);
+    --font-serif: 'Cinzel', serif;
+    --font-sans: 'Plus Jakarta Sans', sans-serif;
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  body {
+    background-color: #050608;
+    color: var(--ink-black);
+    font-family: var(--font-sans);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .presentation-wrapper {
+    width: 100%;
+    max-width: 1140px;
+    aspect-ratio: 16 / 9;
+    position: relative;
+    background: #000;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.8);
+    border: 1px solid rgba(255,255,255,0.08);
+    overflow: hidden;
+  }
+
+  .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    flex-direction: column;
+    padding: 0;
+    opacity: 0;
+    transition: opacity 0.35s ease-in-out;
+  }
+
+  .slide.active {
+    display: flex;
+    opacity: 1;
+    z-index: 2;
+  }
+
+  .theme-light {
+    background-color: var(--bg-light);
+    color: var(--ink-black);
+  }
+  .theme-dark {
+    background-color: var(--bg-dark);
+    color: var(--bg-light);
+  }
+
+  .slide-masthead {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 36px 14px 36px;
+    border-bottom: 1px solid var(--border-light);
+    z-index: 10;
+  }
+  .theme-dark .slide-masthead {
+    border-bottom-color: var(--border-dark);
+  }
+
+  .brand-group {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .brand-logo {
+    height: 38px;
+    width: auto;
+    object-fit: contain;
+  }
+  .brand-logo-hero {
+    height: 56px;
+  }
+  .theme-dark .brand-logo {
+    filter: invert(1) brightness(1.8);
+  }
+
+  .brand-title {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .meta-stamp {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--ink-gray);
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .theme-dark .meta-stamp {
+    color: var(--ink-muted);
+  }
+  
+  .accent-tag {
+    color: var(--wine-burgundy);
+    font-weight: 600;
+  }
+  .theme-dark .accent-tag {
+    color: var(--warm-ochre);
+  }
+
+  .slide-footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 36px;
+    border-top: 1px solid var(--border-light);
+    font-family: var(--font-mono);
+    font-size: 9.5px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-gray);
+    z-index: 10;
+  }
+  .theme-dark .slide-footer {
+    border-top-color: var(--border-dark);
+    color: var(--ink-muted);
+  }
+
+  .canvas {
+    flex: 1;
+    position: relative;
+    padding: 24px 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .kicker {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    color: var(--wine-burgundy);
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .kicker::before {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 1px;
+    background: var(--wine-burgundy);
+  }
+  .theme-dark .kicker {
+    color: var(--warm-ochre);
+  }
+  .theme-dark .kicker::before {
+    background: var(--warm-ochre);
+  }
+
+  .headline-giant {
+    font-family: var(--font-serif);
+    font-size: 38px;
+    line-height: 1.1;
+    font-weight: 400;
+    margin-bottom: 16px;
+  }
+  .headline-giant em {
+    font-style: italic;
+    font-family: var(--font-sans);
+    font-weight: 300;
+    color: var(--ink-gray);
+  }
+
+  .grid-2col {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    width: 100%;
+    height: 100%;
+    gap: 36px;
+    align-items: center;
+  }
+
+  .deck-card {
+    border: 1px solid var(--border-light);
+    background: rgba(255,255,255,0.6);
+    padding: 22px 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .theme-dark .deck-card {
+    border-color: var(--border-dark);
+    background: rgba(255,255,255,0.03);
+  }
+  .card-label {
+    font-family: var(--font-mono);
+    font-size: 9.5px;
+    letter-spacing: 0.15em;
+    color: var(--wine-burgundy);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    display: block;
+  }
+  .theme-dark .card-label {
+    color: var(--warm-ochre);
+  }
+  .card-title {
+    font-family: var(--font-serif);
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  .card-body {
+    font-size: 11.5px;
+    line-height: 1.55;
+    color: var(--ink-gray);
+  }
+  .theme-dark .card-body {
+    color: var(--ink-muted);
+  }
+  .card-bottom-tag {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    border-top: 1px dashed var(--border-light);
+    padding-top: 10px;
+    margin-top: 14px;
+    color: var(--ink-gray);
+  }
+  .theme-dark .card-bottom-tag {
+    border-top-color: var(--border-dark);
+    color: var(--ink-muted);
+  }
+
+  .deck-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1140px;
+    margin-top: 16px;
+    padding: 0 8px;
+    color: #8E929D;
+    font-family: var(--font-mono);
+    font-size: 11px;
+  }
+  .nav-btn-group {
+    display: flex;
+    gap: 10px;
+  }
+  .nav-btn {
+    background: #17181C;
+    color: #F4F1EA;
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 8px 18px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .nav-btn:hover {
+    background: var(--wine-burgundy);
+    border-color: var(--wine-burgundy);
+    color: #FFF;
+  }
+
+  @media print {
+    body { background: none; padding: 0; margin: 0; }
+    .deck-controls { display: none; }
+    .presentation-wrapper { max-width: 100%; box-shadow: none; border: none; aspect-ratio: auto; height: auto; }
+    .slide { position: relative; display: flex !important; opacity: 1 !important; width: 100vw; height: 100vh; page-break-after: always; break-after: page; }
+  }
+</style>
+</head>
+<body>
+
+<div class="presentation-wrapper">
+
+  <section class="slide theme-light active" id="slide-1">
+    <header class="slide-masthead">
+      <div class="brand-group">
+        <img src="../emy-logo.png" alt="EMY Logo" class="brand-logo brand-logo-hero">
+        <div>
+          <span class="brand-title" style="font-size: 13px; letter-spacing: 0.25em;">EMY DESIGN LAB</span>
+          <div style="font-family: var(--font-mono); font-size: 9px; color: var(--wine-burgundy); letter-spacing: 0.15em;">CREATIVE INTELLIGENCE PLATFORM</div>
+        </div>
+      </div>
+      <div class="meta-stamp">
+        <span class="accent-tag">ACT I</span>
+        <span>THE THESIS</span>
+        <span>01 / 06</span>
+      </div>
+    </header>
+    <main class="canvas">
+      <div class="grid-2col">
+        <div>
+          <div class="kicker">Creative Intelligence Movement</div>
+          <h1 class="headline-giant">The difference between <em>watching</em> and becoming.</h1>
+          <p style="font-size: 13.5px; line-height: 1.6; color: var(--ink-gray); border-left: 2px solid var(--wine-burgundy); padding-left: 16px; margin-bottom: 16px;">
+            AI has automated the execution layer at unprecedented speed[cite: 2, 6]. What remains—and what now commands exponential value—is the pre-execution layer: context, intention, and meaning[cite: 2].
+          </p>
+          <p style="font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.1em; color: var(--ink-black);">
+            "WE'RE NOT HERE TO MAKE YOU BETTER. WE'RE HERE TO MAKE YOU DIFFERENT."[cite: 8]
+          </p>
+        </div>
+        <div style="display: flex; justify-content: center; align-items: center;">
+          <svg viewBox="0 0 300 200" width="100%" fill="none">
+            <circle cx="150" cy="100" r="90" stroke="#0E0F12" stroke-width="0.75" stroke-dasharray="4 4"/>
+            <path d="M 20,100 Q 150,-20 280,100 Q 150,220 20,100 Z" stroke="#0E0F12" stroke-width="1.6"/>
+            <circle cx="150" cy="100" r="44" fill="#0E0F12"/>
+            <circle cx="150" cy="100" r="20" fill="var(--bg-light)"/>
+            <circle cx="156" cy="94" r="6" fill="#8B1A2B"/>
+            <line x1="150" y1="5" x2="150" y2="195" stroke="#8B1A2B" stroke-width="0.8" stroke-dasharray="4 2"/>
+            <line x1="5" y1="100" x2="295" y2="100" stroke="#0E0F12" stroke-width="0.5"/>
+          </svg>
+        </div>
+      </div>
+    </main>
+    <footer class="slide-footer">
+      <span>The thinking layer before tools &bull; Design beyond execution[cite: 2, 8]</span>
+      <span>emydesignlab.com</span>
+    </footer>
+  </section>
+
+  <section class="slide theme-light" id="slide-2">
+    <header class="slide-masthead">
+      <div class="brand-group">
+        <img src="../emy-logo.png" alt="EMY Logo" class="brand-logo">
+        <span class="brand-title">EMY DESIGN LAB / TAXONOMY & POSITIONING</span>
+      </div>
+      <div class="meta-stamp">
+        <span class="accent-tag">ACT II</span>
+        <span>THE SPACE WE OCCUPY</span>
+        <span>02 / 06</span>
+      </div>
+    </header>
+    <main class="canvas">
+      <div style="display: flex; flex-direction: column; width: 100%; justify-content: space-between; height: 100%;">
+        <div>
+          <div class="kicker">Core Identity</div>
+          <h2 style="font-family: var(--font-serif); font-size: 30px;">A Lab. A Movement. A Living Room.</h2>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+          <div class="deck-card" style="min-height: 200px;">
+            <div>
+              <span class="card-label">01 / The Liminal Space</span>
+              <h3 class="card-title">A Lab.</h3>
+              <p class="card-body">
+                Occupies the threshold between formal design education and professional practice[cite: 7, 8]. A brave space where learning moves in all directions without predetermined rubrics[cite: 7, 8].
+              </p>
+            </div>
+            <div class="card-bottom-tag">Sequential to Design Schools[cite: 7, 8]</div>
+          </div>
+
+          <div class="deck-card" style="min-height: 200px;">
+            <div>
+              <span class="card-label">02 / The Cognitive Shift</span>
+              <h3 class="card-title">A Movement.</h3>
+              <p class="card-body">
+                Reframing creativity from an elusive gift into an essential, measurable, and developable human intelligence (CQ) for the post-AI era[cite: 2, 7].
+              </p>
+            </div>
+            <div class="card-bottom-tag">Selective by Hunger, Not Credential[cite: 7, 8]</div>
+          </div>
+
+          <div class="deck-card" style="min-height: 200px; border-color: var(--wine-burgundy);">
+            <div>
+              <span class="card-label" style="color: var(--wine-burgundy); font-weight: 600;">03 / Cross-Disciplinary Exchange</span>
+              <h3 class="card-title">A Living Room.</h3>
+              <p class="card-body">
+                Where serious practitioners—spatial designers, ceramicists, typographers, strategists—think out loud together[cite: 7, 8]. A curriculum disguised as conversation[cite: 7, 8].
+              </p>
+            </div>
+            <div class="card-bottom-tag" style="border-top-color: rgba(139,26,43,0.3); color: var(--wine-burgundy);">Cultivation + Provocation[cite: 7, 8]</div>
+          </div>
+        </div>
+
+        <div style="font-family: var(--font-mono); font-size: 9.5px; color: var(--ink-gray); border-top: 1px dashed var(--border-light); padding-top: 8px;">
+          INTELLIGENCE ACROSS FIELDS &bull; Understanding underlying principles rather than multi-craft execution[cite: 7, 8].
+        </div>
+      </div>
+    </main>
+    <footer class="slide-footer">
+      <span>Discipline-agnostic platform &bull; Nurturing the thinking eye[cite: 7, 8]</span>
+      <span>POST-FOUNDATION LAYER</span>
+    </footer>
+  </section>
+
+  <section class="slide theme-dark" id="slide-3">
+    <header class="slide-masthead">
+      <div class="brand-group">
+        <img src="../emy-logo.png" alt="EMY Logo" class="brand-logo">
+        <span class="brand-title">EMY DESIGN LAB / ONTOLOGY</span>
+      </div>
+      <div class="meta-stamp">
+        <span class="accent-tag">ACT III</span>
+        <span>THE THIRD INTELLIGENCE</span>
+        <span>03 / 06</span>
+      </div>
+    </header>
+    <main class="canvas">
+      <div style="display: grid; grid-template-columns: 0.9fr 0.9fr 1.3fr; gap: 18px; width: 100%; height: 100%; align-items: stretch;">
+        <div class="deck-card">
+          <span class="card-label" style="color:var(--ink-muted);">01 / Rational</span>
+          <div style="font-family:var(--font-serif); font-size:42px; margin:6px 0;">IQ</div>
+          <p class="card-body">Logical problem solving within structured systems[cite: 6, 7]. Increasingly automated by machine computation.</p>
+          <div class="card-bottom-tag">Automated Computation</div>
+        </div>
+        <div class="deck-card">
+          <span class="card-label" style="color:var(--ink-muted);">02 / Relational</span>
+          <div style="font-family:var(--font-serif); font-size:42px; margin:6px 0;">EQ</div>
+          <p class="card-body">Empathic navigation of human relationships, psychology, and collaborative spaces[cite: 6, 7].</p>
+          <div class="card-bottom-tag">Human Empathy</div>
+        </div>
+        <div class="deck-card" style="border: 1px solid var(--warm-ochre); background: rgba(224, 122, 40, 0.08);">
+          <span class="card-label" style="color:var(--warm-ochre); font-weight:600;">03 / The Human Edge</span>
+          <div style="font-family:var(--font-serif); font-size:42px; color:var(--warm-ochre); margin:6px 0;">CQ</div>
+          <p class="card-body" style="color:#FFF;">
+            <strong>Creative Intelligence:</strong> The capacity to read cultural context, generate meaning, synthesize across disciplines, and direct AI with intent[cite: 6, 7].
+          </p>
+          <div style="background:#000; padding:10px; border-left:2px solid var(--warm-ochre); font-family:var(--font-mono); font-size:9.5px; color:var(--warm-ochre); margin-top:12px;">
+            CROSS-DISCIPLINARY INTELLIGENCE &ne; MULTI-CRAFT EXPERTISE[cite: 2, 7]
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="slide-footer">
+      <span>Grounded in Simonton, Boden, Dweck, and Bauhaus lineage[cite: 6, 7]</span>
+      <span>CQ IS A DEVELOPABLE CAPACITY</span>
+    </footer>
+  </section>
+
+  <section class="slide theme-light" id="slide-4">
+    <header class="slide-masthead">
+      <div class="brand-group">
+        <img src="../emy-logo.png" alt="EMY Logo" class="brand-logo">
+        <span class="brand-title">EMY DESIGN LAB / ASSESSMENT & TANGIBLE DELIVERABLE</span>
+      </div>
+      <div class="meta-stamp">
+        <span class="accent-tag">ACT IV</span>
+        <span>5 DIMENSIONS</span>
+        <span>04 / 06</span>
+      </div>
+    </header>
+    <main class="canvas">
+      <div style="display: flex; flex-direction: column; width: 100%; justify-content: space-between; height: 100%;">
+        <div>
+          <div class="kicker">Assessment Matrix</div>
+          <h2 style="font-family: var(--font-serif); font-size: 30px;">The Five Dimensions of CQ.</h2>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px;">
+          <div class="deck-card" style="padding: 16px 14px; min-height: 180px;">
+            <span class="card-label">DIM_01</span>
+            <h4 style="font-family:var(--font-serif); font-size:15px; margin-bottom:6px;">Contextual Reading</h4>
+            <p style="font-size:10.5px; color:var(--ink-gray); line-height:1.45;">Reading cultural, historical, and technological signals before marks are made[cite: 6, 7].</p>
+          </div>
+          <div class="deck-card" style="padding: 16px 14px; min-height: 180px;">
+            <span class="card-label">DIM_02</span>
+            <h4 style="font-family:var(--font-serif); font-size:15px; margin-bottom:6px;">Meaning Architecture</h4>
+            <p style="font-size:10.5px; color:var(--ink-gray); line-height:1.45;">Articulating clear intention and narrative before formal execution begins[cite: 6, 7].</p>
+          </div>
+          <div class="deck-card" style="padding: 16px 14px; min-height: 180px;">
+            <span class="card-label">DIM_03</span>
+            <h4 style="font-family:var(--font-serif); font-size:15px; margin-bottom:6px;">Systems Thinking</h4>
+            <p style="font-size:10.5px; color:var(--ink-gray); line-height:1.45;">Understanding second-order effects across culture, society, and ecology[cite: 6, 7].</p>
+          </div>
+          <div class="deck-card" style="padding: 16px 14px; min-height: 180px;">
+            <span class="card-label">DIM_04</span>
+            <h4 style="font-family:var(--font-serif); font-size:15px; margin-bottom:6px;">Cross-Synthesis</h4>
+            <p style="font-size:10.5px; color:var(--ink-gray); line-height:1.45;">Transferring principles from adjacent fields to unlock creative deadlocks[cite: 6, 7].</p>
+          </div>
+          <div class="deck-card" style="padding: 16px 14px; min-height: 180px; border: 1.5px solid var(--wine-burgundy);">
+            <span class="card-label" style="color:var(--wine-burgundy); font-weight:600;">DIM_05</span>
+            <h4 style="font-family:var(--font-serif); font-size:15px; margin-bottom:6px;">AI Direction</h4>
+            <p style="font-size:10.5px; color:var(--ink-gray); line-height:1.45;">Translating developed intelligence into razor-sharp creative prompts and curation[cite: 6, 7].</p>
+          </div>
+        </div>
+
+        <div style="background: #0E0F12; color: #FFF; border-left: 3.5px solid var(--warm-ochre); padding: 18px 22px;">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <div>
+              <span style="font-family:var(--font-mono); font-size:9.5px; color:var(--warm-ochre); letter-spacing:0.15em;">THE TANGIBLE PARTNERSHIP ASSET</span>
+              <h4 style="font-family:var(--font-serif); font-size:17px; margin-top:2px;">The CQ Thinking Dossier</h4>
+            </div>
+            <div style="font-family:var(--font-mono); font-size:9.5px; color:#DDD; max-width:560px; line-height:1.5; text-align:right;">
+              A proprietary cognitive artifact replacing traditional portfolios: documents the context map, intent statement, and AI direction record[cite: 2, 6].
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="slide-footer">
+      <span>Orientations, not grades &bull; Periodic self-mapping for practitioners[cite: 6, 7]</span>
+      <span>THE THINKING DOSSIER</span>
+    </footer>
+  </section>
+
+  <section class="slide theme-light" id="slide-5">
+    <header class="slide-masthead">
+      <div class="brand-group">
+        <img src="../emy-logo.png" alt="EMY Logo" class="brand-logo">
+        <span class="brand-title">EMY DESIGN LAB / LEARNING ARC</span>
+      </div>
+      <div class="meta-stamp">
+        <span class="accent-tag">ACT V</span>
+        <span>THE METHODOLOGY</span>
+        <span>05 / 06</span>
+      </div>
+    </header>
+    <main class="canvas">
+      <div style="display:flex; flex-direction:column; width:100%; justify-content:space-between; height: 100%;">
+        <div>
+          <div class="kicker">Circular Pedagogy</div>
+          <h2 style="font-family:var(--font-serif); font-size:30px;">Where the eye develops.</h2>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(5, 1fr); gap:12px;">
+          <div class="deck-card" style="padding:16px; min-height:190px;">
+            <span class="card-label">01 / Foundation</span>
+            <h4 style="font-family:var(--font-serif); font-size:15px; margin:4px 0 6px 0;">CQ Intro</h4>
+            <p style="font-size:10.5px; color:var(--ink-gray); line-height:1.45;">Map intelligence across the 5 dimensions & baseline audit.</p>
+          </div>
+          <div class="deck-card" style="padding:16px; min-height:190px;">
+            <span class="card-label">02 / Internal</span>
+            <h4 style="font-family:var(--font-serif); font-size:15px; margin:4px 0 6px 0;">Self & Voice</h4>
+            <p style="font-size:10.5px; color:var(--ink-gray); line-height:1.45;">Discover irreducible creative positions and points of view.</p>
+          </div>
+          <div class="deck-card" style="padding:16px; min-height:190px;">
+            <span class="card-label">03 / External</span>
+            <h4 style="font-family:var(--font-serif); font-size:15px; margin:4px 0 6px 0;">Work & Story</h4>
+            <p style="font-size:10.5px; color:var(--ink-gray); line-height:1.45;">Transform professional practice, execution, and narrative.</p>
+          </div>
+          <div class="deck-card" style="padding:16px; min-height:190px;">
+            <span class="card-label">04 / Legacy</span>
+            <h4 style="font-family:var(--font-serif); font-size:15px; margin:4px 0 6px 0;">Time & Ethics</h4>
+            <p style="font-size:10.5px; color:var(--ink-gray); line-height:1.45;">Think beyond deadlines: accountability and permanence.</p>
+          </div>
+          <div class="deck-card" style="padding:16px; min-height:190px; border-color:var(--wine-burgundy);">
+            <span class="card-label" style="color:var(--wine-burgundy);">05 / Restore</span>
+            <h4 style="font-family:var(--font-serif); font-size:15px; margin:4px 0 6px 0;">Wellbeing</h4>
+            <p style="font-size:10.5px; color:var(--ink-gray); line-height:1.45;">Reconnect with the raw curiosity that brought you to design.</p>
+          </div>
+        </div>
+        <div style="font-family:var(--font-mono); font-size:9.5px; color:var(--ink-gray); border-top:1px dashed var(--border-light); padding-top:8px;">
+          CYCLICAL EXPANSION: Continuous outward growth across seasons of exposure and provocation[cite: 7, 8].
+        </div>
+      </div>
+    </main>
+    <footer class="slide-footer">
+      <span>4 Layers of Provocation: Foundation &bull; Tension &bull; Question &bull; Human[cite: 7, 8]</span>
+      <span>WHERE THE EYE DEVELOPS</span>
+    </footer>
+  </section>
+
+  <section class="slide theme-dark" id="slide-6">
+    <header class="slide-masthead">
+      <div class="brand-group">
+        <img src="../emy-logo.png" alt="EMY Logo" class="brand-logo">
+        <span class="brand-title">EMY DESIGN LAB / COLLABORATION MODELS</span>
+      </div>
+      <div class="meta-stamp">
+        <span class="accent-tag">ACT VI</span>
+        <span>PARTNERSHIP</span>
+        <span>06 / 06</span>
+      </div>
+    </header>
+    <main class="canvas">
+      <div class="grid-2col">
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <div class="deck-card" style="padding:12px 16px;">
+            <span class="card-label">Model 01</span>
+            <h4 style="font-family:var(--font-serif); font-size:15px; color:#FFF;">Academic Institution Licensing</h4>
+            <p class="card-body">Complement existing curricula with post-foundation CQ modules and digital lab access[cite: 7, 8].</p>
+          </div>
+          <div class="deck-card" style="padding:12px 16px;">
+            <span class="card-label">Model 02</span>
+            <h4 style="font-family:var(--font-serif); font-size:15px; color:#FFF;">Agency & Enterprise Sprints</h4>
+            <p class="card-body">Intensive 3-hour bespoke CQ workshops for senior creative teams directing AI systems.</p>
+          </div>
+          <div class="deck-card" style="padding:12px 16px;">
+            <span class="card-label">Model 03</span>
+            <h4 style="font-family:var(--font-serif); font-size:15px; color:#FFF;">Curated Residencies & Salons</h4>
+            <p class="card-body">Co-branded cross-disciplinary conversation series and intimate Vancouver studio workshops[cite: 7, 8].</p>
+          </div>
+        </div>
+        <div style="background:#17181C; border-left:3px solid var(--warm-ochre); padding:24px; display:flex; flex-direction:column; justify-content:space-between; height:100%;">
+          <div>
+            <div class="kicker" style="color:var(--warm-ochre);">The Invitation</div>
+            <p style="font-family:var(--font-serif); font-size:18px; line-height:1.4; font-style:italic; color:#FFF; margin-bottom:14px;">
+              "Not in revelations. In residue. The living room is open. The conversation has already begun."[cite: 7, 8]
+            </p>
+            <p style="font-size:12px; color:#DDD; line-height:1.55;">
+              Partner with EMY to develop the thinking eye for the designers who will define the next decade[cite: 7, 8].
+            </p>
+          </div>
+          <div style="border-top:1px solid rgba(255,255,255,0.1); padding-top:14px; display:flex; justify-content:space-between; align-items:center; font-family:var(--font-mono); font-size:9.5px;">
+            <span style="color:var(--warm-ochre-light);">VANCOUVER &bull; GLOBAL LAB</span>
+            <span style="color:#FFF; font-weight:600;">hello@emydesignlab.com[cite: 8]</span>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="slide-footer">
+      <span>Open for institutional licensing, agency sprints & partner residencies[cite: 7, 8]</span>
+      <span>emydesignlab.com[cite: 8]</span>
+    </footer>
+  </section>
+
+</div>
+
+<div class="deck-controls">
+  <div>Use <kbd>&larr;</kbd> and <kbd>&rarr;</kbd> keys or buttons to navigate</div>
+  <div class="nav-btn-group">
+    <button class="nav-btn" onclick="prevSlide()">&larr; Prev</button>
+    <span id="slide-indicator" style="padding: 8px 12px; font-weight: 600; color: #FFF;">Slide 1 of 6</span>
+    <button class="nav-btn" onclick="nextSlide()">Next &rarr;</button>
+  </div>
+</div>
+
+<script>
+  let currentSlide = 1;
+  const totalSlides = 6;
+
+  function showSlide(index) {
+    if (index < 1) index = 1;
+    if (index > totalSlides) index = totalSlides;
+    currentSlide = index;
+
+    document.querySelectorAll('.slide').forEach((slide, i) => {
+      slide.classList.toggle('active', i + 1 === currentSlide);
+    });
+
+    document.getElementById('slide-indicator').textContent = `Slide ${currentSlide} of ${totalSlides}`;
+  }
+
+  function nextSlide() { showSlide(currentSlide + 1); }
+  function prevSlide() { showSlide(currentSlide - 1); }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
+    if (e.key === 'ArrowLeft') prevSlide();
+  });
+</script>
+
+</body>
+</html>
