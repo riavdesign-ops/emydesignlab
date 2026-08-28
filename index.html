@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>EMY Design Lab — Creative Intelligence</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,30 +29,33 @@
   html, body {
     width: 100%;
     height: 100%;
-    overflow: hidden;
     background-color: var(--bg-dark);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
 
   .deck-container {
     width: 100vw;
     height: 100vh;
+    height: 100dvh;
     position: relative;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
   }
 
-  /* Global Top Masthead with Slide Heading Navigation */
+  /* Global Top Masthead */
   header.global-masthead {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 16px 48px;
+    padding: 14px 36px;
     background: var(--bg-light);
     border-bottom: 1px solid var(--border-light);
     z-index: 100;
+    flex-shrink: 0;
     transition: background 0.3s, border-color 0.3s;
   }
 
@@ -64,15 +67,17 @@
   .brand-group {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 12px;
     cursor: pointer;
+    text-decoration: none;
   }
 
   .brand-logo {
     height: 38px;
     width: auto;
     object-fit: contain;
-    background-color: transparent;
+    display: block;
+    background: transparent !important;
     transition: filter 0.3s;
   }
 
@@ -82,7 +87,7 @@
 
   .brand-title {
     font-family: var(--font-mono);
-    font-size: 12px;
+    font-size: 11.5px;
     letter-spacing: 0.22em;
     text-transform: uppercase;
     font-weight: 700;
@@ -96,7 +101,7 @@
 
   .brand-subtitle {
     font-family: var(--font-mono);
-    font-size: 9.5px;
+    font-size: 9px;
     color: var(--wine-burgundy);
     letter-spacing: 0.15em;
     transition: color 0.3s;
@@ -106,25 +111,28 @@
     color: var(--warm-ochre);
   }
 
-  /* Top Heading Navigation Buttons */
+  /* Top Navigation Pill Buttons */
   .slide-nav-headings {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
   }
 
   .nav-heading-btn {
     background: transparent;
     border: 1px solid transparent;
-    padding: 8px 14px;
+    padding: 7px 12px;
     font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.15em;
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--ink-gray);
     cursor: pointer;
     transition: all 0.2s ease-in-out;
-    border-radius: 2px;
+    border-radius: 4px;
+    white-space: nowrap;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
   }
 
   .global-masthead.dark-mode .nav-heading-btn {
@@ -133,12 +141,12 @@
 
   .nav-heading-btn:hover {
     color: var(--wine-burgundy);
-    background: rgba(139, 26, 43, 0.05);
+    background: rgba(139, 26, 43, 0.06);
   }
 
   .global-masthead.dark-mode .nav-heading-btn:hover {
     color: var(--warm-ochre);
-    background: rgba(224, 122, 40, 0.1);
+    background: rgba(224, 122, 40, 0.12);
   }
 
   .nav-heading-btn.active {
@@ -172,7 +180,9 @@
     flex-direction: column;
     justify-content: space-between;
     opacity: 0;
-    transition: opacity 0.3s ease-in-out;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    transition: opacity 0.25s ease-in-out;
   }
 
   .slide.active {
@@ -181,7 +191,6 @@
     z-index: 2;
   }
 
-  /* Themes */
   .theme-light {
     background-color: var(--bg-light);
     color: var(--ink-black);
@@ -195,7 +204,7 @@
   .canvas {
     flex: 1;
     position: relative;
-    padding: 24px 48px;
+    padding: 24px 36px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -204,43 +213,44 @@
     width: 100%;
   }
 
-  /* Slide Footers */
+  /* Footers */
   .slide-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 14px 48px;
+    padding: 12px 36px;
     border-top: 1px solid var(--border-light);
     font-family: var(--font-mono);
-    font-size: 10px;
-    letter-spacing: 0.2em;
+    font-size: 9.5px;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--ink-gray);
     z-index: 10;
+    flex-shrink: 0;
   }
   .theme-dark .slide-footer {
     border-top-color: var(--border-dark);
     color: var(--ink-muted);
   }
 
-  /* Slide 1 Hero Logo (Matches 88px Diameter of Vector Eye) */
+  /* Slide 1 Hero Logo */
   .slide1-hero-logo {
-    height: 88px;
+    height: 72px;
     width: auto;
     object-fit: contain;
-    background-color: var(--bg-light);
-    margin-bottom: 20px;
     display: block;
+    margin-bottom: 16px;
+    background: transparent !important;
   }
 
   /* Typography */
   .kicker {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: 10.5px;
     color: var(--wine-burgundy);
-    letter-spacing: 0.25em;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -248,7 +258,7 @@
   .kicker::before {
     content: "";
     display: inline-block;
-    width: 22px;
+    width: 20px;
     height: 1px;
     background: var(--wine-burgundy);
   }
@@ -261,10 +271,10 @@
 
   .headline-giant {
     font-family: var(--font-serif);
-    font-size: 44px;
+    font-size: clamp(28px, 3.8vw, 44px);
     line-height: 1.1;
     font-weight: 400;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
   }
   .headline-giant em {
     font-style: italic;
@@ -277,18 +287,19 @@
     display: grid;
     grid-template-columns: 1.15fr 0.85fr;
     width: 100%;
-    gap: 48px;
+    gap: 36px;
     align-items: center;
   }
 
-  /* Structured Cards */
+  /* Cards */
   .deck-card {
     border: 1px solid var(--border-light);
-    background: rgba(255,255,255,0.6);
-    padding: 24px 20px;
+    background: rgba(255,255,255,0.65);
+    padding: 20px 18px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    border-radius: 2px;
   }
   .theme-dark .deck-card {
     border-color: var(--border-dark);
@@ -296,7 +307,7 @@
   }
   .card-label {
     font-family: var(--font-mono);
-    font-size: 10px;
+    font-size: 9.5px;
     letter-spacing: 0.15em;
     color: var(--wine-burgundy);
     text-transform: uppercase;
@@ -308,12 +319,12 @@
   }
   .card-title {
     font-family: var(--font-serif);
-    font-size: 22px;
-    margin-bottom: 10px;
+    font-size: 20px;
+    margin-bottom: 8px;
   }
   .card-body {
-    font-size: 13px;
-    line-height: 1.6;
+    font-size: 12.5px;
+    line-height: 1.55;
     color: var(--ink-gray);
   }
   .theme-dark .card-body {
@@ -321,17 +332,93 @@
   }
   .card-bottom-tag {
     font-family: var(--font-mono);
-    font-size: 9.5px;
+    font-size: 9px;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     border-top: 1px dashed var(--border-light);
-    padding-top: 12px;
-    margin-top: 16px;
+    padding-top: 10px;
+    margin-top: 14px;
     color: var(--ink-gray);
   }
   .theme-dark .card-bottom-tag {
     border-top-color: var(--border-dark);
     color: var(--ink-muted);
+  }
+
+  /* =========================================================
+     MOBILE & RESPONSIVE OPTIMIZATIONS
+     ========================================================= */
+  @media (max-width: 900px) {
+    header.global-masthead {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 18px;
+    }
+
+    .slide-nav-headings {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 4px;
+      scrollbar-width: none;
+    }
+    .slide-nav-headings::-webkit-scrollbar {
+      display: none;
+    }
+    .nav-heading-btn {
+      padding: 6px 10px;
+      font-size: 9.5px;
+      flex-shrink: 0;
+    }
+
+    .canvas {
+      padding: 20px 18px 40px 18px;
+      align-items: flex-start;
+    }
+
+    .grid-2col {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    /* Grids stacking */
+    .mobile-stack-3 {
+      display: grid;
+      grid-template-columns: 1fr !important;
+      gap: 14px !important;
+    }
+    .mobile-stack-5 {
+      display: grid;
+      grid-template-columns: 1fr !important;
+      gap: 12px !important;
+    }
+
+    .headline-giant {
+      font-size: 28px;
+    }
+
+    .slide1-hero-logo {
+      height: 52px;
+      margin-bottom: 12px;
+    }
+
+    .slide-footer {
+      flex-direction: column;
+      gap: 6px;
+      text-align: center;
+      padding: 10px 16px;
+      font-size: 8.5px;
+    }
+
+    .dossier-box-responsive {
+      flex-direction: column;
+      align-items: flex-start !important;
+      gap: 10px;
+    }
+    .dossier-box-responsive .dossier-right-text {
+      text-align: left !important;
+    }
   }
 
   @media print {
@@ -345,8 +432,11 @@
 
 <div class="deck-container">
 
+  <!-- ==========================================
+       TOP MASTHEAD NAVIGATION
+       ========================================== -->
   <header class="global-masthead" id="global-header">
-    <div class="brand-group" onclick="showSlide(1)">
+    <div class="brand-group" data-slide-target="1">
       <img src="emy-logo.png" alt="EMY Logo" class="brand-logo">
       <div>
         <div class="brand-title">EMY DESIGN LAB</div>
@@ -354,34 +444,37 @@
       </div>
     </div>
     <nav class="slide-nav-headings">
-      <button class="nav-heading-btn active" onclick="showSlide(1)">01 / Manifesto</button>
-      <button class="nav-heading-btn" onclick="showSlide(2)">02 / Position</button>
-      <button class="nav-heading-btn" onclick="showSlide(3)">03 / CQ Model</button>
-      <button class="nav-heading-btn" onclick="showSlide(4)">04 / 5 Dimensions</button>
-      <button class="nav-heading-btn" onclick="showSlide(5)">05 / Learning Arc</button>
-      <button class="nav-heading-btn" onclick="showSlide(6)">06 / Partnership</button>
+      <button class="nav-heading-btn active" data-slide-target="1">01 / Manifesto</button>
+      <button class="nav-heading-btn" data-slide-target="2">02 / Position</button>
+      <button class="nav-heading-btn" data-slide-target="3">03 / CQ Model</button>
+      <button class="nav-heading-btn" data-slide-target="4">04 / 5 Dimensions</button>
+      <button class="nav-heading-btn" data-slide-target="5">05 / Learning Arc</button>
+      <button class="nav-heading-btn" data-slide-target="6">06 / Partnership</button>
     </nav>
   </header>
 
-  <div class="slide-viewport">
+  <!-- ==========================================
+       SLIDE VIEWPORT
+       ========================================== -->
+  <div class="slide-viewport" id="viewport-touch-zone">
 
+    <!-- SLIDE 01: MANIFESTO -->
     <section class="slide theme-light active" id="slide-1" data-theme="light">
       <main class="canvas">
         <div class="grid-2col">
           <div>
             <img src="emy-logo.png" alt="EMY Logo" class="slide1-hero-logo">
-            
             <div class="kicker">Creative Intelligence Movement</div>
             <h1 class="headline-giant">The difference between <em>watching</em> and becoming.</h1>
-            <p style="font-size: 14.5px; line-height: 1.65; color: var(--ink-gray); border-left: 2px solid var(--wine-burgundy); padding-left: 18px; margin-bottom: 18px;">
+            <p style="font-size: 14px; line-height: 1.6; color: var(--ink-gray); border-left: 2px solid var(--wine-burgundy); padding-left: 14px; margin-bottom: 16px;">
               AI has automated the execution layer at unprecedented speed. What remains—and what now commands exponential value—is the pre-execution layer: context, intention, and meaning.
             </p>
-            <p style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; color: var(--ink-black);">
+            <p style="font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.1em; color: var(--ink-black);">
               "WE'RE NOT HERE TO MAKE YOU BETTER. WE'RE HERE TO MAKE YOU DIFFERENT."
             </p>
           </div>
           <div style="display: flex; justify-content: center; align-items: center;">
-            <svg viewBox="0 0 300 200" width="85%" fill="none">
+            <svg viewBox="0 0 300 200" width="85%" max-width="320" fill="none">
               <circle cx="150" cy="100" r="90" stroke="#0E0F12" stroke-width="0.75" stroke-dasharray="4 4"/>
               <path d="M 20,100 Q 150,-20 280,100 Q 150,220 20,100 Z" stroke="#0E0F12" stroke-width="1.6"/>
               <circle cx="150" cy="100" r="44" fill="#0E0F12"/>
@@ -399,16 +492,17 @@
       </footer>
     </section>
 
+    <!-- SLIDE 02: POSITIONING -->
     <section class="slide theme-light" id="slide-2" data-theme="light">
       <main class="canvas">
-        <div style="display: flex; flex-direction: column; width: 100%; justify-content: space-between; height: 100%;">
+        <div style="display: flex; flex-direction: column; width: 100%; justify-content: space-between; min-height: 100%; gap: 16px;">
           <div>
             <div class="kicker">Core Identity</div>
-            <h2 style="font-family: var(--font-serif); font-size: 34px;">A Lab. A Movement. A Living Room.</h2>
+            <h2 style="font-family: var(--font-serif); font-size: clamp(24px, 3vw, 32px);">A Lab. A Movement. A Living Room.</h2>
           </div>
           
-          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
-            <div class="deck-card" style="min-height: 220px;">
+          <div class="mobile-stack-3" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+            <div class="deck-card" style="min-height: 200px;">
               <div>
                 <span class="card-label">01 / The Liminal Space</span>
                 <h3 class="card-title">A Lab.</h3>
@@ -419,7 +513,7 @@
               <div class="card-bottom-tag">Sequential to Design Schools</div>
             </div>
 
-            <div class="deck-card" style="min-height: 220px;">
+            <div class="deck-card" style="min-height: 200px;">
               <div>
                 <span class="card-label">02 / The Cognitive Shift</span>
                 <h3 class="card-title">A Movement.</h3>
@@ -430,7 +524,7 @@
               <div class="card-bottom-tag">Selective by Hunger, Not Credential</div>
             </div>
 
-            <div class="deck-card" style="min-height: 220px; border-color: var(--wine-burgundy);">
+            <div class="deck-card" style="min-height: 200px; border-color: var(--wine-burgundy);">
               <div>
                 <span class="card-label" style="color: var(--wine-burgundy); font-weight: 600;">03 / Cross-Disciplinary Exchange</span>
                 <h3 class="card-title">A Living Room.</h3>
@@ -442,7 +536,7 @@
             </div>
           </div>
 
-          <div style="font-family: var(--font-mono); font-size: 10px; color: var(--ink-gray); border-top: 1px dashed var(--border-light); padding-top: 10px;">
+          <div style="font-family: var(--font-mono); font-size: 9.5px; color: var(--ink-gray); border-top: 1px dashed var(--border-light); padding-top: 8px;">
             INTELLIGENCE ACROSS FIELDS &bull; Understanding underlying principles rather than multi-craft execution.
           </div>
         </div>
@@ -453,9 +547,292 @@
       </footer>
     </section>
 
+    <!-- SLIDE 03: THE THIRD INTELLIGENCE (CQ) -->
     <section class="slide theme-dark" id="slide-3" data-theme="dark">
       <main class="canvas">
-        <div style="display: grid; grid-template-columns: 0.9fr 0.9fr 1.3fr; gap: 20px; width: 100%; height: 100%; align-items: stretch;">
+        <div class="mobile-stack-3" style="display: grid; grid-template-columns: 0.9fr 0.9fr 1.3fr; gap: 16px; width: 100%; align-items: stretch;">
           <div class="deck-card">
             <span class="card-label" style="color:var(--ink-muted);">01 / Rational</span>
-            <div style="font-family:var(--font-serif); font-size:46px; margin:6px 0;">IQ</div>
+            <div style="font-family:var(--font-serif); font-size:40px; margin:4px 0;">IQ</div>
+            <p class="card-body">Logical problem solving within structured systems. Increasingly automated by machine computation.</p>
+            <div class="card-bottom-tag">Automated Computation</div>
+          </div>
+          <div class="deck-card">
+            <span class="card-label" style="color:var(--ink-muted);">02 / Relational</span>
+            <div style="font-family:var(--font-serif); font-size:40px; margin:4px 0;">EQ</div>
+            <p class="card-body">Empathic navigation of human relationships, psychology, and collaborative spaces.</p>
+            <div class="card-bottom-tag">Human Empathy</div>
+          </div>
+          <div class="deck-card" style="border: 1px solid var(--warm-ochre); background: rgba(224, 122, 40, 0.08);">
+            <span class="card-label" style="color:var(--warm-ochre); font-weight:600;">03 / The Human Edge</span>
+            <div style="font-family:var(--font-serif); font-size:40px; color:var(--warm-ochre); margin:4px 0;">CQ</div>
+            <p class="card-body" style="color:#FFF;">
+              <strong>Creative Intelligence:</strong> The capacity to read cultural context, generate meaning, synthesize across disciplines, and direct AI with intent.
+            </p>
+            <div style="background:#000; padding:10px; border-left:2px solid var(--warm-ochre); font-family:var(--font-mono); font-size:9.5px; color:var(--warm-ochre); margin-top:12px;">
+              CROSS-DISCIPLINARY INTELLIGENCE &ne; MULTI-CRAFT EXPERTISE
+            </div>
+          </div>
+        </div>
+      </main>
+      <footer class="slide-footer">
+        <span>Grounded in Simonton, Boden, Dweck, and Bauhaus lineage</span>
+        <span>CQ IS A DEVELOPABLE CAPACITY</span>
+      </footer>
+    </section>
+
+    <!-- SLIDE 04: 5 DIMENSIONS & DOSSIER -->
+    <section class="slide theme-light" id="slide-4" data-theme="light">
+      <main class="canvas">
+        <div style="display: flex; flex-direction: column; width: 100%; justify-content: space-between; min-height: 100%; gap: 14px;">
+          <div>
+            <div class="kicker">Assessment Matrix</div>
+            <h2 style="font-family: var(--font-serif); font-size: clamp(24px, 3vw, 32px);">The Five Dimensions of CQ.</h2>
+          </div>
+
+          <div class="mobile-stack-5" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px;">
+            <div class="deck-card" style="padding: 14px;">
+              <span class="card-label">DIM_01</span>
+              <h4 style="font-family:var(--font-serif); font-size:15px; margin-bottom:4px;">Contextual Reading</h4>
+              <p style="font-size:11px; color:var(--ink-gray); line-height:1.45;">Reading cultural, historical, and technological signals before marks are made.</p>
+            </div>
+            <div class="deck-card" style="padding: 14px;">
+              <span class="card-label">DIM_02</span>
+              <h4 style="font-family:var(--font-serif); font-size:15px; margin-bottom:4px;">Meaning Architecture</h4>
+              <p style="font-size:11px; color:var(--ink-gray); line-height:1.45;">Articulating clear intention and narrative before formal execution begins.</p>
+            </div>
+            <div class="deck-card" style="padding: 14px;">
+              <span class="card-label">DIM_03</span>
+              <h4 style="font-family:var(--font-serif); font-size:15px; margin-bottom:4px;">Systems Thinking</h4>
+              <p style="font-size:11px; color:var(--ink-gray); line-height:1.45;">Understanding second-order effects across culture, society, and ecology.</p>
+            </div>
+            <div class="deck-card" style="padding: 14px;">
+              <span class="card-label">DIM_04</span>
+              <h4 style="font-family:var(--font-serif); font-size:15px; margin-bottom:4px;">Cross-Synthesis</h4>
+              <p style="font-size:11px; color:var(--ink-gray); line-height:1.45;">Transferring principles from adjacent fields to unlock creative deadlocks.</p>
+            </div>
+            <div class="deck-card" style="padding: 14px; border: 1.5px solid var(--wine-burgundy);">
+              <span class="card-label" style="color:var(--wine-burgundy); font-weight:600;">DIM_05</span>
+              <h4 style="font-family:var(--font-serif); font-size:15px; margin-bottom:4px;">AI Direction</h4>
+              <p style="font-size:11px; color:var(--ink-gray); line-height:1.45;">Translating developed intelligence into razor-sharp creative prompts and curation.</p>
+            </div>
+          </div>
+
+          <div class="dossier-box-responsive" style="background: #0E0F12; color: #FFF; border-left: 3.5px solid var(--warm-ochre); padding: 16px 20px; display: flex; justify-content: space-between; align-items: center;">
+            <div>
+              <span style="font-family:var(--font-mono); font-size:9.5px; color:var(--warm-ochre); letter-spacing:0.15em;">THE TANGIBLE PARTNERSHIP ASSET</span>
+              <h4 style="font-family:var(--font-serif); font-size:16px; margin-top:2px;">The CQ Thinking Dossier</h4>
+            </div>
+            <div class="dossier-right-text" style="font-family:var(--font-mono); font-size:10px; color:#DDD; max-width:550px; line-height:1.45; text-align:right;">
+              A proprietary cognitive artifact replacing traditional portfolios: documents the context map, intent statement, and AI direction record.
+            </div>
+          </div>
+        </div>
+      </main>
+      <footer class="slide-footer">
+        <span>Orientations, not grades &bull; Periodic self-mapping for practitioners</span>
+        <span>THE THINKING DOSSIER</span>
+      </footer>
+    </section>
+
+    <!-- SLIDE 05: LEARNING ARC -->
+    <section class="slide theme-light" id="slide-5" data-theme="light">
+      <main class="canvas">
+        <div style="display:flex; flex-direction:column; width:100%; justify-content:space-between; min-height: 100%; gap: 14px;">
+          <div>
+            <div class="kicker">Circular Pedagogy</div>
+            <h2 style="font-family:var(--font-serif); font-size: clamp(24px, 3vw, 32px);">Where the eye develops.</h2>
+          </div>
+          <div class="mobile-stack-5" style="display:grid; grid-template-columns:repeat(5, 1fr); gap:10px;">
+            <div class="deck-card" style="padding:14px; min-height:180px;">
+              <span class="card-label">01 / Foundation</span>
+              <h4 style="font-family:var(--font-serif); font-size:15px; margin:4px 0 6px 0;">CQ Intro</h4>
+              <p style="font-size:11px; color:var(--ink-gray); line-height:1.45;">Map intelligence across the 5 dimensions & baseline audit.</p>
+            </div>
+            <div class="deck-card" style="padding:14px; min-height:180px;">
+              <span class="card-label">02 / Internal</span>
+              <h4 style="font-family:var(--font-serif); font-size:15px; margin:4px 0 6px 0;">Self & Voice</h4>
+              <p style="font-size:11px; color:var(--ink-gray); line-height:1.45;">Discover irreducible creative positions and points of view.</p>
+            </div>
+            <div class="deck-card" style="padding:14px; min-height:180px;">
+              <span class="card-label">03 / External</span>
+              <h4 style="font-family:var(--font-serif); font-size:15px; margin:4px 0 6px 0;">Work & Story</h4>
+              <p style="font-size:11px; color:var(--ink-gray); line-height:1.45;">Transform professional practice, execution, and narrative.</p>
+            </div>
+            <div class="deck-card" style="padding:14px; min-height:180px;">
+              <span class="card-label">04 / Legacy</span>
+              <h4 style="font-family:var(--font-serif); font-size:15px; margin:4px 0 6px 0;">Time & Ethics</h4>
+              <p style="font-size:11px; color:var(--ink-gray); line-height:1.45;">Think beyond deadlines: accountability and permanence.</p>
+            </div>
+            <div class="deck-card" style="padding:14px; min-height:180px; border-color:var(--wine-burgundy);">
+              <span class="card-label" style="color:var(--wine-burgundy);">05 / Restore</span>
+              <h4 style="font-family:var(--font-serif); font-size:15px; margin:4px 0 6px 0;">Wellbeing</h4>
+              <p style="font-size:11px; color:var(--ink-gray); line-height:1.45;">Reconnect with the raw curiosity that brought you to design.</p>
+            </div>
+          </div>
+          <div style="font-family:var(--font-mono); font-size:9.5px; color:var(--ink-gray); border-top:1px dashed var(--border-light); padding-top:8px;">
+            CYCLICAL EXPANSION: Continuous outward growth across seasons of exposure and provocation.
+          </div>
+        </div>
+      </main>
+      <footer class="slide-footer">
+        <span>4 Layers of Provocation: Foundation &bull; Tension &bull; Question &bull; Human</span>
+        <span>WHERE THE EYE DEVELOPS</span>
+      </footer>
+    </section>
+
+    <!-- SLIDE 06: INVITATION -->
+    <section class="slide theme-dark" id="slide-6" data-theme="dark">
+      <main class="canvas">
+        <div class="grid-2col">
+          <div style="display:flex; flex-direction:column; gap:10px;">
+            <div class="deck-card" style="padding:12px 16px;">
+              <span class="card-label">Model 01</span>
+              <h4 style="font-family:var(--font-serif); font-size:15px; color:#FFF;">Academic Institution Licensing</h4>
+              <p class="card-body">Complement existing curricula with post-foundation CQ modules and digital lab access.</p>
+            </div>
+            <div class="deck-card" style="padding:12px 16px;">
+              <span class="card-label">Model 02</span>
+              <h4 style="font-family:var(--font-serif); font-size:15px; color:#FFF;">Agency & Enterprise Sprints</h4>
+              <p class="card-body">Intensive 3-hour bespoke CQ workshops for senior creative teams directing AI systems.</p>
+            </div>
+            <div class="deck-card" style="padding:12px 16px;">
+              <span class="card-label">Model 03</span>
+              <h4 style="font-family:var(--font-serif); font-size:15px; color:#FFF;">Curated Residencies & Salons</h4>
+              <p class="card-body">Co-branded cross-disciplinary conversation series and intimate Vancouver studio workshops.</p>
+            </div>
+          </div>
+          <div style="background:#17181C; border-left:3px solid var(--warm-ochre); padding:22px; display:flex; flex-direction:column; justify-content:space-between; height:100%; min-height: 220px;">
+            <div>
+              <div class="kicker" style="color:var(--warm-ochre);">The Invitation</div>
+              <p style="font-family:var(--font-serif); font-size:17px; line-height:1.45; font-style:italic; color:#FFF; margin-bottom:12px;">
+                "Not in revelations. In residue. The living room is open. The conversation has already begun."
+              </p>
+              <p style="font-size:12px; color:#DDD; line-height:1.55;">
+                Partner with EMY to develop the thinking eye for the designers who will define the next decade.
+              </p>
+            </div>
+            <div style="border-top:1px solid rgba(255,255,255,0.1); padding-top:12px; display:flex; justify-content:space-between; align-items:center; font-family:var(--font-mono); font-size:9.5px;">
+              <span style="color:var(--warm-ochre-light);">VANCOUVER &bull; GLOBAL LAB</span>
+              <span style="color:#FFF; font-weight:600;">hello@emydesignlab.com</span>
+            </div>
+          </div>
+        </div>
+      </main>
+      <footer class="slide-footer">
+        <span>Open for institutional licensing, agency sprints & partner residencies</span>
+        <span>emydesignlab.com</span>
+      </footer>
+    </section>
+
+  </div>
+
+</div>
+
+<script>
+  let currentSlide = 1;
+  const totalSlides = 6;
+  const globalHeader = document.getElementById('global-header');
+
+  function goToSlide(index) {
+    let target = parseInt(index, 10);
+    if (isNaN(target)) target = 1;
+    if (target < 1) target = 1;
+    if (target > totalSlides) target = totalSlides;
+    currentSlide = target;
+
+    // Switch active slide
+    const slides = document.querySelectorAll('.slide');
+    slides.forEach((slide, i) => {
+      const isActive = (i + 1 === currentSlide);
+      slide.classList.toggle('active', isActive);
+      
+      if (isActive) {
+        slide.scrollTop = 0; // Reset scroll on switch
+        const theme = slide.getAttribute('data-theme');
+        if (theme === 'dark') {
+          globalHeader.classList.add('dark-mode');
+        } else {
+          globalHeader.classList.remove('dark-mode');
+        }
+      }
+    });
+
+    // Update navigation buttons
+    const navButtons = document.querySelectorAll('.nav-heading-btn');
+    navButtons.forEach((btn) => {
+      const btnTarget = parseInt(btn.getAttribute('data-slide-target'), 10);
+      btn.classList.toggle('active', btnTarget === currentSlide);
+    });
+  }
+
+  window.goToSlide = goToSlide;
+
+  // Touch swipe support for mobile
+  let touchStartX = 0;
+  let touchStartY = 0;
+  let touchEndX = 0;
+  let touchEndY = 0;
+  const viewport = document.getElementById('viewport-touch-zone');
+
+  viewport.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+    touchStartY = e.changedTouches[0].screenY;
+  }, { passive: true });
+
+  viewport.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    touchEndY = e.changedTouches[0].screenY;
+    handleSwipe();
+  }, { passive: true });
+
+  function handleSwipe() {
+    const diffX = touchEndX - touchStartX;
+    const diffY = touchEndY - touchStartY;
+    // Only register horizontal swipes (ignore vertical scrolling)
+    if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 40) {
+      if (diffX < 0) {
+        goToSlide(currentSlide + 1); // Swipe Left -> Next
+      } else {
+        goToSlide(currentSlide - 1); // Swipe Right -> Prev
+      }
+    }
+  }
+
+  // Bind click & tap events
+  function initEvents() {
+    document.querySelectorAll('[data-slide-target]').forEach(elem => {
+      elem.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = elem.getAttribute('data-slide-target');
+        goToSlide(target);
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initEvents);
+  } else {
+    initEvents();
+  }
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ') {
+      goToSlide(currentSlide + 1);
+    }
+    if (e.key === 'ArrowLeft') {
+      goToSlide(currentSlide - 1);
+    }
+  });
+</script>
+
+</body>
+</html>
+```eof
+
+### What to do next:
+1. Open your repository on GitHub.
+2. Click on **`index.html`**, click the **Pencil icon** (Edit), select all, and replace everything with the code above.
+3. Click the green **Commit changes** button.
+4. Open **`emydesignlab.com`** on your phone (or in your desktop browser). Test tapping the header buttons and swiping left/right across the screen.
