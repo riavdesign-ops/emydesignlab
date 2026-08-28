@@ -255,6 +255,8 @@
     margin-bottom: 6px;
     display: block;
     font-weight: 600;
+    height: 16px;
+    line-height: 16px;
   }
   .card-title {
     font-family: var(--font-serif);
@@ -304,7 +306,7 @@
     border-radius: 2px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
   }
   .course-pill-card h5 {
     font-family: var(--font-serif);
@@ -316,6 +318,19 @@
     font-size: 10.5px;
     line-height: 1.4;
     color: var(--ink-gray);
+  }
+
+  /* Slide 6 Uniform Alignment Styles */
+  .slide6-column-card {
+    padding: 12px !important;
+    justify-content: flex-start !important;
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 290px;
+  }
+  .slide6-column-card .card-label {
+    margin-bottom: 8px !important;
+    flex-shrink: 0;
   }
 
   @media (max-width: 900px) {
@@ -662,7 +677,7 @@
       </footer>
     </section>
 
-    <!-- SLIDE 06: WORKSHOP SUITE (BURGUNDY FRAMES & REFINED LABELS) -->
+    <!-- SLIDE 06: WORKSHOP SUITE (PERFECT TOP & BOTTOM GRID ALIGNMENT) -->
     <section class="slide" id="slide-6">
       <main class="canvas">
         <div class="slide-inner-centered" style="gap:10px;">
@@ -671,70 +686,76 @@
             <h2 style="font-family:var(--font-serif); font-size:clamp(18px, 2.2vw, 24px);">Where the eye develops.</h2>
           </div>
 
-          <!-- Cross-Disciplinary Banner with Burgundy Frame -->
+          <!-- Cross-Disciplinary Banner -->
           <div style="background:var(--card-white); border: 1px solid var(--border-burgundy); padding:10px 14px; border-left:3.5px solid var(--wine-burgundy); border-radius:3px;">
             <span style="font-family:var(--font-mono); font-size:8.5px; color:var(--wine-burgundy); letter-spacing:0.12em; text-transform:uppercase; font-weight:600;">The Cross-Disciplinary Difference</span>
             <p style="font-size:11px; font-style:italic; color:var(--ink-black); margin:2px 0;">"EMY does not ask designers to become architects. It asks them to understand how an architect thinks about the same fundamental problem and let that expand their own eye."</p>
           </div>
 
-          <!-- 5-Column Workshop Grid -->
-          <div class="mobile-stack-5" style="display:grid; grid-template-columns:repeat(5, 1fr); gap:8px;">
+          <!-- 5-Column Workshop Grid (Strictly Aligned) -->
+          <div class="mobile-stack-5" style="display:grid; grid-template-columns:repeat(5, 1fr); gap:8px; align-items:stretch;">
             
             <!-- 01 / CQ Foundations -->
-            <div class="deck-card" style="padding:10px 12px; gap:6px;">
+            <div class="deck-card slide6-column-card">
               <span class="card-label">01 / Foundation</span>
-              <div class="course-pill-card" style="height:100%;">
+              <div class="course-pill-card" style="flex:1;">
                 <h5>CQ Foundations</h5>
-                <p style="font-size:9px; font-family:var(--font-mono); color:var(--wine-burgundy); margin-bottom:4px; font-weight:600;">First of five modules</p>
+                <p style="font-size:9px; font-family:var(--font-mono); color:var(--wine-burgundy); margin-bottom:6px; font-weight:600;">First of five modules</p>
                 <p>Self-paced mapping across all 5 dimensions. Complete an assessment and first provocation to know where your CQ is ready to grow.</p>
               </div>
             </div>
 
             <!-- 02 / Know Yourself First -->
-            <div class="deck-card" style="padding:10px 12px; gap:6px;">
+            <div class="deck-card slide6-column-card">
               <span class="card-label">02 / Know Yourself</span>
-              <div class="course-pill-card" style="margin-bottom:4px;">
-                <h5>Design and Self</h5>
-                <p>One honest mirror. Self-discovery through restraint, pattern, and making without outcome.</p>
-              </div>
-              <div class="course-pill-card">
-                <h5>Design and Voice</h5>
-                <p>A confident creative POV to walk into any room and own it.</p>
+              <div style="display:flex; flex-direction:column; gap:6px; flex:1;">
+                <div class="course-pill-card" style="flex:1;">
+                  <h5>Design and Self</h5>
+                  <p>One honest mirror. Self-discovery through restraint, pattern, and making without outcome.</p>
+                </div>
+                <div class="course-pill-card" style="flex:1;">
+                  <h5>Design and Voice</h5>
+                  <p>A confident creative POV to walk into any room and own it.</p>
+                </div>
               </div>
             </div>
 
             <!-- 03 / Develop Your Practice -->
-            <div class="deck-card" style="padding:10px 12px; gap:6px;">
+            <div class="deck-card slide6-column-card">
               <span class="card-label">03 / Your Practice</span>
-              <div class="course-pill-card" style="margin-bottom:4px;">
-                <h5>Design and Work</h5>
-                <p>Thinking layer for professional practice: intention before execution & cultural reading.</p>
-              </div>
-              <div class="course-pill-card">
-                <h5>Design and Story</h5>
-                <p>Uncover the narrative underneath to pitch, propose, and position with conviction.</p>
+              <div style="display:flex; flex-direction:column; gap:6px; flex:1;">
+                <div class="course-pill-card" style="flex:1;">
+                  <h5>Design and Work</h5>
+                  <p>Thinking layer for professional practice: intention before execution & cultural reading.</p>
+                </div>
+                <div class="course-pill-card" style="flex:1;">
+                  <h5>Design and Story</h5>
+                  <p>Uncover the narrative underneath to pitch, propose, and position with conviction.</p>
+                </div>
               </div>
             </div>
 
             <!-- 04 / Go Deeper -->
-            <div class="deck-card" style="padding:10px 12px; gap:6px;">
+            <div class="deck-card slide6-column-card">
               <span class="card-label">04 / Go Deeper</span>
-              <div class="course-pill-card" style="margin-bottom:4px;">
-                <h5>Design and Time</h5>
-                <p>Thinking beyond deadlines: permanence, what survives, and choosing why you make.</p>
-              </div>
-              <div class="course-pill-card">
-                <h5>Design and Ethics</h5>
-                <p>Asking who this serves, what it costs, and taking responsibility before the brief.</p>
+              <div style="display:flex; flex-direction:column; gap:6px; flex:1;">
+                <div class="course-pill-card" style="flex:1;">
+                  <h5>Design and Time</h5>
+                  <p>Thinking beyond deadlines: permanence, what survives, and choosing why you make.</p>
+                </div>
+                <div class="course-pill-card" style="flex:1;">
+                  <h5>Design and Ethics</h5>
+                  <p>Asking who this serves, what it costs, and taking responsibility before the brief.</p>
+                </div>
               </div>
             </div>
 
-            <!-- 05 / Restore and Renew (Matching Standard Black Font) -->
-            <div class="deck-card" style="padding:10px 12px; justify-content:flex-start; gap:6px;">
+            <!-- 05 / Restore and Renew -->
+            <div class="deck-card slide6-column-card">
               <span class="card-label">05 / Restore & Renew</span>
-              <div class="course-pill-card" style="height:100%;">
+              <div class="course-pill-card" style="flex:1;">
                 <h5>Design and Wellbeing</h5>
-                <p>Provocation, making, and honest reflection to help individuals and teams reconnect with the raw curiosity and feeling that brought them to design.</p>
+                <p style="margin-top:2px;">Provocation, making, and honest reflection to help individuals and teams reconnect with the raw curiosity and feeling that brought them to design.</p>
               </div>
             </div>
 
