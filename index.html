@@ -10,14 +10,14 @@
 <style>
   :root {
     --bg-light: #F4F1EA;
-    --bg-dark: #0D0E10;
-    --ink-black: #0E0F12;
-    --ink-gray: #5A5D66;
-    --ink-muted: #9E9EA7;
+    --bg-dark: #141518;
+    --ink-black: #1A1B1E;
+    --ink-gray: #555861;
+    --ink-muted: #9497A1;
     --wine-burgundy: #8B1A2B;
     --warm-ochre: #E07A28;
     --warm-ochre-light: #F39C42;
-    --border-light: rgba(14, 15, 18, 0.12);
+    --border-light: rgba(26, 27, 30, 0.12);
     --border-dark: rgba(244, 241, 234, 0.14);
     --font-serif: 'Cinzel', serif;
     --font-sans: 'Plus Jakarta Sans', sans-serif;
@@ -45,13 +45,12 @@
     overflow: hidden;
   }
 
-  /* Global Top Masthead */
   header.global-masthead {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 14px 36px;
+    padding: 12px 36px;
     background: var(--bg-light);
     border-bottom: 1px solid var(--border-light);
     z-index: 100;
@@ -73,7 +72,7 @@
   }
 
   .brand-logo {
-    height: 38px;
+    height: 36px;
     width: auto;
     object-fit: contain;
     display: block;
@@ -87,7 +86,7 @@
 
   .brand-title {
     font-family: var(--font-mono);
-    font-size: 11.5px;
+    font-size: 11px;
     letter-spacing: 0.22em;
     text-transform: uppercase;
     font-weight: 700;
@@ -101,7 +100,7 @@
 
   .brand-subtitle {
     font-family: var(--font-mono);
-    font-size: 9px;
+    font-size: 8.5px;
     color: var(--wine-burgundy);
     letter-spacing: 0.15em;
     transition: color 0.3s;
@@ -111,25 +110,24 @@
     color: var(--warm-ochre);
   }
 
-  /* Top Navigation Pill Buttons */
   .slide-nav-headings {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 4px;
   }
 
   .nav-heading-btn {
     background: transparent;
     border: 1px solid transparent;
-    padding: 7px 12px;
+    padding: 6px 10px;
     font-family: var(--font-mono);
-    font-size: 10.5px;
+    font-size: 10px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--ink-gray);
     cursor: pointer;
     transition: all 0.2s ease-in-out;
-    border-radius: 4px;
+    border-radius: 2px;
     white-space: nowrap;
     user-select: none;
     -webkit-tap-highlight-color: transparent;
@@ -158,11 +156,10 @@
 
   .global-masthead.dark-mode .nav-heading-btn.active {
     background: var(--warm-ochre);
-    color: #0E0F12 !important;
+    color: #141518 !important;
     border-color: var(--warm-ochre);
   }
 
-  /* Slide Viewport */
   .slide-viewport {
     flex: 1;
     position: relative;
@@ -200,7 +197,6 @@
     color: var(--bg-light);
   }
 
-  /* Canvas Area */
   .canvas {
     flex: 1;
     position: relative;
@@ -208,20 +204,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    max-width: 1400px;
+    max-width: 1360px;
     margin: 0 auto;
     width: 100%;
   }
 
-  /* Footers */
   .slide-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 36px;
+    padding: 10px 36px;
     border-top: 1px solid var(--border-light);
     font-family: var(--font-mono);
-    font-size: 9.5px;
+    font-size: 9px;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--ink-gray);
@@ -233,24 +228,22 @@
     color: var(--ink-muted);
   }
 
-  /* Slide 1 Hero Logo */
   .slide1-hero-logo {
-    height: 160px;
+    height: clamp(84px, 12vw, 150px);
     width: auto;
     object-fit: contain;
     display: block;
-    margin-bottom: 16px;
+    margin-bottom: 18px;
     background: transparent !important;
   }
 
-  /* Typography */
   .kicker {
     font-family: var(--font-mono);
-    font-size: 10.5px;
+    font-size: 10px;
     color: var(--wine-burgundy);
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -258,7 +251,7 @@
   .kicker::before {
     content: "";
     display: inline-block;
-    width: 20px;
+    width: 18px;
     height: 1px;
     background: var(--wine-burgundy);
   }
@@ -271,10 +264,10 @@
 
   .headline-giant {
     font-family: var(--font-serif);
-    font-size: clamp(28px, 3.8vw, 44px);
-    line-height: 1.1;
+    font-size: clamp(26px, 3.4vw, 42px);
+    line-height: 1.12;
     font-weight: 400;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
   }
   .headline-giant em {
     font-style: italic;
@@ -291,11 +284,10 @@
     align-items: center;
   }
 
-  /* Cards */
   .deck-card {
     border: 1px solid var(--border-light);
-    background: rgba(255,255,255,0.65);
-    padding: 20px 18px;
+    background: rgba(255,255,255,0.7);
+    padding: 16px 18px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -305,13 +297,14 @@
     border-color: var(--border-dark);
     background: rgba(255,255,255,0.03);
   }
+
   .card-label {
     font-family: var(--font-mono);
-    font-size: 9.5px;
+    font-size: 9px;
     letter-spacing: 0.15em;
     color: var(--wine-burgundy);
     text-transform: uppercase;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     display: block;
   }
   .theme-dark .card-label {
@@ -319,12 +312,12 @@
   }
   .card-title {
     font-family: var(--font-serif);
-    font-size: 20px;
-    margin-bottom: 8px;
+    font-size: 18px;
+    margin-bottom: 6px;
   }
   .card-body {
-    font-size: 12.5px;
-    line-height: 1.55;
+    font-size: 12px;
+    line-height: 1.5;
     color: var(--ink-gray);
   }
   .theme-dark .card-body {
@@ -332,12 +325,12 @@
   }
   .card-bottom-tag {
     font-family: var(--font-mono);
-    font-size: 9px;
+    font-size: 8.5px;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     border-top: 1px dashed var(--border-light);
-    padding-top: 10px;
-    margin-top: 14px;
+    padding-top: 8px;
+    margin-top: 12px;
     color: var(--ink-gray);
   }
   .theme-dark .card-bottom-tag {
@@ -345,15 +338,31 @@
     color: var(--ink-muted);
   }
 
-  /* =========================================================
-     MOBILE & RESPONSIVE OPTIMIZATIONS
-     ========================================================= */
+  .action-btn {
+    display: inline-block;
+    background: var(--ink-black);
+    color: #FFF;
+    border: 1px solid var(--ink-black);
+    padding: 10px 22px;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .action-btn:hover {
+    background: var(--wine-burgundy);
+    border-color: var(--wine-burgundy);
+  }
+
   @media (max-width: 900px) {
     header.global-masthead {
       flex-direction: column;
       align-items: flex-start;
-      gap: 12px;
-      padding: 12px 18px;
+      gap: 10px;
+      padding: 10px 16px;
     }
 
     .slide-nav-headings {
@@ -367,57 +376,33 @@
       display: none;
     }
     .nav-heading-btn {
-      padding: 6px 10px;
-      font-size: 9.5px;
+      padding: 5px 8px;
+      font-size: 9px;
       flex-shrink: 0;
     }
 
     .canvas {
-      padding: 20px 18px 40px 18px;
+      padding: 16px 16px 36px 16px;
       align-items: flex-start;
     }
 
     .grid-2col {
       grid-template-columns: 1fr;
-      gap: 24px;
+      gap: 20px;
     }
 
-    /* Grids stacking */
-    .mobile-stack-3 {
-      display: grid;
-      grid-template-columns: 1fr !important;
-      gap: 14px !important;
-    }
-    .mobile-stack-5 {
+    .mobile-stack-3, .mobile-stack-4, .mobile-stack-5 {
       display: grid;
       grid-template-columns: 1fr !important;
       gap: 12px !important;
     }
 
-    .headline-giant {
-      font-size: 28px;
-    }
-
-    .slide1-hero-logo {
-      height: 52px;
-      margin-bottom: 12px;
-    }
-
     .slide-footer {
       flex-direction: column;
-      gap: 6px;
+      gap: 4px;
       text-align: center;
-      padding: 10px 16px;
-      font-size: 8.5px;
-    }
-
-    .dossier-box-responsive {
-      flex-direction: column;
-      align-items: flex-start !important;
-      gap: 10px;
-    }
-    .dossier-box-responsive .dossier-right-text {
-      text-align: left !important;
+      padding: 8px 14px;
+      font-size: 8px;
     }
   }
 
@@ -433,7 +418,7 @@
 <div class="deck-container">
 
   <!-- ==========================================
-       TOP MASTHEAD NAVIGATION
+       TOP MASTHEAD NAVIGATION (7 BUTTONS)
        ========================================== -->
   <header class="global-masthead" id="global-header">
     <div class="brand-group" data-slide-target="1">
@@ -444,12 +429,13 @@
       </div>
     </div>
     <nav class="slide-nav-headings">
-      <button class="nav-heading-btn active" data-slide-target="1">01 / Manifesto</button>
-      <button class="nav-heading-btn" data-slide-target="2">02 / Position</button>
-      <button class="nav-heading-btn" data-slide-target="3">03 / CQ Model</button>
-      <button class="nav-heading-btn" data-slide-target="4">04 / 5 Dimensions</button>
-      <button class="nav-heading-btn" data-slide-target="5">05 / Learning Arc</button>
-      <button class="nav-heading-btn" data-slide-target="6">06 / Partnership</button>
+      <button class="nav-heading-btn active" data-slide-target="1">01 / Home</button>
+      <button class="nav-heading-btn" data-slide-target="2">02 / The Problem</button>
+      <button class="nav-heading-btn" data-slide-target="3">03 / The Solution</button>
+      <button class="nav-heading-btn" data-slide-target="4">04 / How It Works</button>
+      <button class="nav-heading-btn" data-slide-target="5">05 / The Living Room</button>
+      <button class="nav-heading-btn" data-slide-target="6">06 / Workshop Suite</button>
+      <button class="nav-heading-btn" data-slide-target="7">07 / Join</button>
     </nav>
   </header>
 
@@ -458,269 +444,338 @@
        ========================================== -->
   <div class="slide-viewport" id="viewport-touch-zone">
 
-    <!-- SLIDE 01: MANIFESTO -->
+    <!-- SLIDE 01: HOME -->
     <section class="slide theme-light active" id="slide-1" data-theme="light">
       <main class="canvas">
         <div class="grid-2col">
           <div>
             <img src="emy-logo.png" alt="EMY Logo" class="slide1-hero-logo">
-            <div class="kicker">Creative Intelligence Movement</div>
-            <h1 class="headline-giant">The difference between <em>watching</em> and becoming.</h1>
-            <p style="font-size: 14px; line-height: 1.6; color: var(--ink-gray); border-left: 2px solid var(--wine-burgundy); padding-left: 14px; margin-bottom: 16px;">
-              AI has automated the execution layer at unprecedented speed. What remains—and what now commands exponential value—is the pre-execution layer: context, intention, and meaning.
+            <div class="kicker">Creative Intelligence</div>
+            <h1 class="headline-giant">You got into design because you saw things <em>differently</em>.</h1>
+            <p style="font-size: 13.5px; line-height: 1.55; color: var(--ink-gray); border-left: 2px solid var(--wine-burgundy); padding-left: 14px; margin-bottom: 14px;">
+              EMY Design Lab is a living room for designers who sense there is more beneath the surface of their practice and are ready to find it. We develop Creative Intelligence. Not to make you better. To make you different.
             </p>
-            <p style="font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.1em; color: var(--ink-black);">
-              "WE'RE NOT HERE TO MAKE YOU BETTER. WE'RE HERE TO MAKE YOU DIFFERENT."
+            <p style="font-size: 12px; color: var(--ink-gray); margin-bottom: 18px;">
+              For the mid-career designer whose work no longer surprises them. For the beginner who already senses there is more. For anyone whose work requires original thought.
             </p>
+            <a href="javascript:void(0)" onclick="goToSlide(7)" class="action-btn">Join The Waitlist &rarr;</a>
           </div>
           <div style="display: flex; justify-content: center; align-items: center;">
-            <svg viewBox="0 0 300 200" width="85%" max-width="320" fill="none">
-              <circle cx="150" cy="100" r="90" stroke="#0E0F12" stroke-width="0.75" stroke-dasharray="4 4"/>
-              <path d="M 20,100 Q 150,-20 280,100 Q 150,220 20,100 Z" stroke="#0E0F12" stroke-width="1.6"/>
-              <circle cx="150" cy="100" r="44" fill="#0E0F12"/>
+            <svg viewBox="0 0 300 200" width="85%" max-width="300" fill="none">
+              <circle cx="150" cy="100" r="90" stroke="#1A1B1E" stroke-width="0.75" stroke-dasharray="4 4"/>
+              <path d="M 20,100 Q 150,-20 280,100 Q 150,220 20,100 Z" stroke="#1A1B1E" stroke-width="1.6"/>
+              <circle cx="150" cy="100" r="44" fill="#1A1B1E"/>
               <circle cx="150" cy="100" r="20" fill="var(--bg-light)"/>
               <circle cx="156" cy="94" r="6" fill="#8B1A2B"/>
               <line x1="150" y1="5" x2="150" y2="195" stroke="#8B1A2B" stroke-width="0.8" stroke-dasharray="4 2"/>
-              <line x1="5" y1="100" x2="295" y2="100" stroke="#0E0F12" stroke-width="0.5"/>
+              <line x1="5" y1="100" x2="295" y2="100" stroke="#1A1B1E" stroke-width="0.5"/>
             </svg>
           </div>
         </div>
       </main>
       <footer class="slide-footer">
-        <span>The thinking layer before tools &bull; Design beyond execution</span>
+        <span>We don't teach design. We teach designers to see.</span>
         <span>emydesignlab.com</span>
       </footer>
     </section>
 
-    <!-- SLIDE 02: POSITIONING -->
+    <!-- SLIDE 02: THE PROBLEM -->
     <section class="slide theme-light" id="slide-2" data-theme="light">
       <main class="canvas">
-        <div style="display: flex; flex-direction: column; width: 100%; justify-content: space-between; min-height: 100%; gap: 16px;">
+        <div style="display:flex; flex-direction:column; width:100%; justify-content:space-between; min-height:100%; gap:12px;">
           <div>
-            <div class="kicker">Core Identity</div>
-            <h2 style="font-family: var(--font-serif); font-size: clamp(24px, 3vw, 32px);">A Lab. A Movement. A Living Room.</h2>
+            <div class="kicker">Why Now</div>
+            <h2 style="font-family: var(--font-serif); font-size: clamp(22px, 2.6vw, 30px); line-height: 1.15; margin-bottom: 6px;">
+              Creativity is not a gift. Never was.<br>That was always just the convenient story.
+            </h2>
+            <p style="font-size: 12.5px; color: var(--ink-gray);">
+              Somewhere along the way we stopped teaching designers to see. We taught them to make. And then we wondered why everything started looking the same.
+            </p>
           </div>
           
-          <div class="mobile-stack-3" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
-            <div class="deck-card" style="min-height: 200px;">
+          <div class="mobile-stack-3" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;">
+            <div class="deck-card">
               <div>
-                <span class="card-label">01 / The Liminal Space</span>
-                <h3 class="card-title">A Lab.</h3>
+                <span class="card-label">The Conditions</span>
+                <h3 class="card-title">What Eroded It</h3>
                 <p class="card-body">
-                  Occupies the threshold between formal design education and professional practice. A brave space where learning moves in all directions without predetermined rubrics.
+                  Standardised testing removed tolerance for ambiguity. Production culture rewarded output over thinking. Social media collapsed patience for depth. Tools arrived before the philosophy did.
                 </p>
               </div>
-              <div class="card-bottom-tag">Sequential to Design Schools</div>
+              <div class="card-bottom-tag">Nobody planned this. But here we are.</div>
             </div>
 
-            <div class="deck-card" style="min-height: 200px;">
+            <div class="deck-card">
               <div>
-                <span class="card-label">02 / The Cognitive Shift</span>
-                <h3 class="card-title">A Movement.</h3>
+                <span class="card-label">The Illumination</span>
+                <h3 class="card-title">What AI Revealed</h3>
                 <p class="card-body">
-                  Reframing creativity from an elusive gift into an essential, measurable, and developable human intelligence (CQ) for the post-AI era.
+                  AI automated execution at unprecedented speed. It did not create the gap in design education. It illuminated it. Suddenly the distance between what designers were taught and what the world requires became impossible to ignore.
                 </p>
               </div>
-              <div class="card-bottom-tag">Selective by Hunger, Not Credential</div>
+              <div class="card-bottom-tag">The gap was always there.</div>
             </div>
 
-            <div class="deck-card" style="min-height: 200px; border-color: var(--wine-burgundy);">
+            <div class="deck-card" style="border-color: var(--wine-burgundy);">
               <div>
-                <span class="card-label" style="color: var(--wine-burgundy); font-weight: 600;">03 / Cross-Disciplinary Exchange</span>
-                <h3 class="card-title">A Living Room.</h3>
+                <span class="card-label" style="color: var(--wine-burgundy); font-weight: 600;">The Opportunity</span>
+                <h3 class="card-title">What Remains Irreplaceable</h3>
                 <p class="card-body">
-                  Where serious practitioners—spatial designers, ceramicists, typographers, strategists—think out loud together. A curriculum disguised as conversation.
+                  The thinking layer before the brief. Context, meaning, intention, creative judgment. The intelligence that precedes the canvas and the prompt. AI can only execute as well as the thinking you bring to it. EMY develops the thinking.
                 </p>
               </div>
-              <div class="card-bottom-tag" style="border-top-color: rgba(139,26,43,0.3); color: var(--wine-burgundy);">Cultivation + Provocation</div>
+              <div class="card-bottom-tag" style="color: var(--wine-burgundy);">This is what EMY is for.</div>
             </div>
           </div>
 
-          <div style="font-family: var(--font-mono); font-size: 9.5px; color: var(--ink-gray); border-top: 1px dashed var(--border-light); padding-top: 8px;">
-            INTELLIGENCE ACROSS FIELDS &bull; Understanding underlying principles rather than multi-craft execution.
+          <div style="font-family: var(--font-mono); font-size: 9px; color: var(--ink-gray); border-top: 1px dashed var(--border-light); padding-top: 6px;">
+            Assessment has its place. Structure has its place. EMY is not anti-education. It is what comes next.
           </div>
         </div>
       </main>
       <footer class="slide-footer">
-        <span>Discipline-agnostic platform &bull; Nurturing the thinking eye</span>
-        <span>POST-FOUNDATION LAYER</span>
+        <span>The thinking eye is not inherited. It is built. And it can always be built further.</span>
+        <span>emydesignlab.com</span>
       </footer>
     </section>
 
-    <!-- SLIDE 03: THE THIRD INTELLIGENCE (CQ) -->
+    <!-- SLIDE 03: THE SOLUTION -->
     <section class="slide theme-dark" id="slide-3" data-theme="dark">
       <main class="canvas">
-        <div class="mobile-stack-3" style="display: grid; grid-template-columns: 0.9fr 0.9fr 1.3fr; gap: 16px; width: 100%; align-items: stretch;">
-          <div class="deck-card">
-            <span class="card-label" style="color:var(--ink-muted);">01 / Rational</span>
-            <div style="font-family:var(--font-serif); font-size:40px; margin:4px 0;">IQ</div>
-            <p class="card-body">Logical problem solving within structured systems. Increasingly automated by machine computation.</p>
-            <div class="card-bottom-tag">Automated Computation</div>
+        <div style="display:flex; flex-direction:column; width:100%; justify-content:space-between; min-height:100%; gap:12px;">
+          <div class="mobile-stack-3" style="display: grid; grid-template-columns: 0.85fr 0.85fr 1.3fr; gap: 14px; width: 100%; align-items: stretch;">
+            <div class="deck-card">
+              <span class="card-label" style="color:var(--ink-muted);">Rational</span>
+              <div style="font-family:var(--font-serif); font-size:36px; margin:2px 0;">IQ</div>
+              <p class="card-body">The capacity to think logically and solve structured problems. Increasingly automated by machine computation.</p>
+              <div class="card-bottom-tag">Being automated at scale</div>
+            </div>
+            <div class="deck-card">
+              <span class="card-label" style="color:var(--ink-muted);">Relational</span>
+              <div style="font-family:var(--font-serif); font-size:36px; margin:2px 0;">EQ</div>
+              <p class="card-body">The capacity to read and navigate human emotion and relationship. Uniquely and irreplaceably human.</p>
+              <div class="card-bottom-tag">Irreplaceably human</div>
+            </div>
+            <div class="deck-card" style="border: 1px solid var(--warm-ochre); background: rgba(224, 122, 40, 0.08);">
+              <span class="card-label" style="color:var(--warm-ochre); font-weight:600;">Creative</span>
+              <div style="font-family:var(--font-serif); font-size:36px; color:var(--warm-ochre); margin:2px 0;">CQ</div>
+              <p class="card-body" style="color:#FFF;">
+                The capacity to read context, generate meaning, synthesize across disciplines and make work that matters. Not talent. A developable capacity. This is what EMY builds in you.
+              </p>
+              <div class="card-bottom-tag" style="border-top-color: rgba(224, 122, 40, 0.3); color:var(--warm-ochre);">What AI cannot replace.</div>
+            </div>
           </div>
-          <div class="deck-card">
-            <span class="card-label" style="color:var(--ink-muted);">02 / Relational</span>
-            <div style="font-family:var(--font-serif); font-size:40px; margin:4px 0;">EQ</div>
-            <p class="card-body">Empathic navigation of human relationships, psychology, and collaborative spaces.</p>
-            <div class="card-bottom-tag">Human Empathy</div>
-          </div>
-          <div class="deck-card" style="border: 1px solid var(--warm-ochre); background: rgba(224, 122, 40, 0.08);">
-            <span class="card-label" style="color:var(--warm-ochre); font-weight:600;">03 / The Human Edge</span>
-            <div style="font-family:var(--font-serif); font-size:40px; color:var(--warm-ochre); margin:4px 0;">CQ</div>
-            <p class="card-body" style="color:#FFF;">
-              <strong>Creative Intelligence:</strong> The capacity to read cultural context, generate meaning, synthesize across disciplines, and direct AI with intent.
-            </p>
-            <div style="background:#000; padding:10px; border-left:2px solid var(--warm-ochre); font-family:var(--font-mono); font-size:9.5px; color:var(--warm-ochre); margin-top:12px;">
-              CROSS-DISCIPLINARY INTELLIGENCE &ne; MULTI-CRAFT EXPERTISE
+
+          <div class="mobile-stack-4" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
+            <div class="deck-card" style="padding: 10px 12px;">
+              <span class="card-label" style="color:var(--warm-ochre);">Perceptual Training</span>
+              <p style="font-size: 10.5px; color: #DDD; line-height: 1.4;">The eye before the software. Learning to see what works before you can explain why.</p>
+            </div>
+            <div class="deck-card" style="padding: 10px 12px;">
+              <span class="card-label" style="color:var(--warm-ochre);">Creative Authorship</span>
+              <p style="font-size: 10.5px; color: #DDD; line-height: 1.4;">The ability to articulate ideas, defend creative decisions and tell the story of the work.</p>
+            </div>
+            <div class="deck-card" style="padding: 10px 12px;">
+              <span class="card-label" style="color:var(--warm-ochre);">Cognitive Distinction</span>
+              <p style="font-size: 10.5px; color: #DDD; line-height: 1.4;">A creative perspective that is unmistakably yours. Not slightly faster. Genuinely different.</p>
+            </div>
+            <div class="deck-card" style="padding: 10px 12px;">
+              <span class="card-label" style="color:var(--warm-ochre);">Timeless Craft</span>
+              <p style="font-size: 10.5px; color: #DDD; line-height: 1.4;">Instincts and principles that outlast every tool update: proportion, tension, meaning, restraint.</p>
             </div>
           </div>
         </div>
       </main>
       <footer class="slide-footer">
-        <span>Grounded in Simonton, Boden, Dweck, and Bauhaus lineage</span>
-        <span>CQ IS A DEVELOPABLE CAPACITY</span>
+        <span>Grounded in cognitive science and historic design lineage &bull; CQ is developable. Always.</span>
+        <span>emydesignlab.com</span>
       </footer>
     </section>
 
-    <!-- SLIDE 04: 5 DIMENSIONS & DOSSIER -->
+    <!-- SLIDE 04: HOW IT WORKS -->
     <section class="slide theme-light" id="slide-4" data-theme="light">
       <main class="canvas">
-        <div style="display: flex; flex-direction: column; width: 100%; justify-content: space-between; min-height: 100%; gap: 14px;">
+        <div style="display:flex; flex-direction:column; width:100%; justify-content:space-between; min-height:100%; gap:12px;">
           <div>
-            <div class="kicker">Assessment Matrix</div>
-            <h2 style="font-family: var(--font-serif); font-size: clamp(24px, 3vw, 32px);">The Five Dimensions of CQ.</h2>
+            <div class="kicker">How It Works</div>
+            <h2 style="font-family:var(--font-serif); font-size:clamp(22px, 2.6vw, 30px); margin-bottom:4px;">Three Layers. One Cycle.</h2>
+            <p style="font-size: 12px; color: var(--ink-gray);">
+              If I could walk into a room where every great design mind was just talking. Not lecturing. Not performing. Just thinking out loud about what they know and why it matters. That's the room I'd never leave. That's EMY.
+            </p>
           </div>
-
-          <div class="mobile-stack-5" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px;">
-            <div class="deck-card" style="padding: 14px;">
-              <span class="card-label">DIM_01</span>
-              <h4 style="font-family:var(--font-serif); font-size:15px; margin-bottom:4px;">Contextual Reading</h4>
-              <p style="font-size:11px; color:var(--ink-gray); line-height:1.45;">Reading cultural, historical, and technological signals before marks are made.</p>
+          <div class="mobile-stack-3" style="display:grid; grid-template-columns:repeat(3, 1fr); gap:12px;">
+            <div class="deck-card">
+              <div>
+                <span class="card-label">The Conversation Series</span>
+                <h3 class="card-title">Always On. Global.</h3>
+                <p class="card-body">
+                  Practitioners from completely different disciplines think out loud about their process not their portfolio. A curriculum disguised as a conversation. This is how EMY builds its audience and reputation.
+                </p>
+              </div>
+              <div class="card-bottom-tag">Not in revelations. In residue.</div>
             </div>
-            <div class="deck-card" style="padding: 14px;">
-              <span class="card-label">DIM_02</span>
-              <h4 style="font-family:var(--font-serif); font-size:15px; margin-bottom:4px;">Meaning Architecture</h4>
-              <p style="font-size:11px; color:var(--ink-gray); line-height:1.45;">Articulating clear intention and narrative before formal execution begins.</p>
+            <div class="deck-card">
+              <div>
+                <span class="card-label">The Workshops</span>
+                <h3 class="card-title">The CQ Method.</h3>
+                <p class="card-body">
+                  Four layers of provocation: Foundation, Tension, Question, Human moving from formal craft to deep human experience. No rubric. No ceiling. No floor. Beginning in Vancouver and expanding globally.
+                </p>
+              </div>
+              <div class="card-bottom-tag">Making becomes thinking made visible.</div>
             </div>
-            <div class="deck-card" style="padding: 14px;">
-              <span class="card-label">DIM_03</span>
-              <h4 style="font-family:var(--font-serif); font-size:15px; margin-bottom:4px;">Systems Thinking</h4>
-              <p style="font-size:11px; color:var(--ink-gray); line-height:1.45;">Understanding second-order effects across culture, society, and ecology.</p>
-            </div>
-            <div class="deck-card" style="padding: 14px;">
-              <span class="card-label">DIM_04</span>
-              <h4 style="font-family:var(--font-serif); font-size:15px; margin-bottom:4px;">Cross-Synthesis</h4>
-              <p style="font-size:11px; color:var(--ink-gray); line-height:1.45;">Transferring principles from adjacent fields to unlock creative deadlocks.</p>
-            </div>
-            <div class="deck-card" style="padding: 14px; border: 1.5px solid var(--wine-burgundy);">
-              <span class="card-label" style="color:var(--wine-burgundy); font-weight:600;">DIM_05</span>
-              <h4 style="font-family:var(--font-serif); font-size:15px; margin-bottom:4px;">AI Direction</h4>
-              <p style="font-size:11px; color:var(--ink-gray); line-height:1.45;">Translating developed intelligence into razor-sharp creative prompts and curation.</p>
+            <div class="deck-card" style="border-color: var(--wine-burgundy);">
+              <div>
+                <span class="card-label" style="color: var(--wine-burgundy); font-weight:600;">The Community</span>
+                <h3 class="card-title">An Identity. Not a Transaction.</h3>
+                <p class="card-body">
+                  Where learning continues between workshops. Members respond to provocations together, share what they made, hold each other accountable to the kind of thinking EMY is designed to develop.
+                </p>
+              </div>
+              <div class="card-bottom-tag" style="color: var(--wine-burgundy);">Selective by hunger. Not credential.</div>
             </div>
           </div>
-
-          <div class="dossier-box-responsive" style="background: #0E0F12; color: #FFF; border-left: 3.5px solid var(--warm-ochre); padding: 16px 20px; display: flex; justify-content: space-between; align-items: center;">
-            <div>
-              <span style="font-family:var(--font-mono); font-size:9.5px; color:var(--warm-ochre); letter-spacing:0.15em;">THE TANGIBLE PARTNERSHIP ASSET</span>
-              <h4 style="font-family:var(--font-serif); font-size:16px; margin-top:2px;">The CQ Thinking Dossier</h4>
-            </div>
-            <div class="dossier-right-text" style="font-family:var(--font-mono); font-size:10px; color:#DDD; max-width:550px; line-height:1.45; text-align:right;">
-              A proprietary cognitive artifact replacing traditional portfolios: documents the context map, intent statement, and AI direction record.
-            </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; background:var(--ink-black); color:#FFF; padding:10px 16px; border-radius:2px;">
+            <span style="font-family:var(--font-mono); font-size:10px; color:var(--warm-ochre);">NEXT: EXPLORE THE FULL METHODOLOGY & WORKSHOP SUITE</span>
+            <a href="javascript:void(0)" onclick="goToSlide(6)" style="font-family:var(--font-mono); font-size:10px; color:#FFF; text-decoration:underline;">View Workshop Arc &rarr;</a>
           </div>
         </div>
       </main>
       <footer class="slide-footer">
-        <span>Orientations, not grades &bull; Periodic self-mapping for practitioners</span>
-        <span>THE THINKING DOSSIER</span>
+        <span>The eye develops not in revelations. In residue.</span>
+        <span>emydesignlab.com</span>
       </footer>
     </section>
 
-    <!-- SLIDE 05: LEARNING ARC -->
+    <!-- SLIDE 05: THE LIVING ROOM -->
     <section class="slide theme-light" id="slide-5" data-theme="light">
       <main class="canvas">
-        <div style="display:flex; flex-direction:column; width:100%; justify-content:space-between; min-height: 100%; gap: 14px;">
+        <div style="display:flex; flex-direction:column; width:100%; justify-content:space-between; min-height:100%; gap:12px;">
           <div>
-            <div class="kicker">Circular Pedagogy</div>
-            <h2 style="font-family:var(--font-serif); font-size: clamp(24px, 3vw, 32px);">Where the eye develops.</h2>
+            <div class="kicker">The Living Room</div>
+            <h2 style="font-family:var(--font-serif); font-size:clamp(22px, 2.6vw, 30px);">Not a Safe Space. A Brave One.</h2>
           </div>
-          <div class="mobile-stack-5" style="display:grid; grid-template-columns:repeat(5, 1fr); gap:10px;">
-            <div class="deck-card" style="padding:14px; min-height:180px;">
-              <span class="card-label">01 / Foundation</span>
-              <h4 style="font-family:var(--font-serif); font-size:15px; margin:4px 0 6px 0;">CQ Intro</h4>
-              <p style="font-size:11px; color:var(--ink-gray); line-height:1.45;">Map intelligence across the 5 dimensions & baseline audit.</p>
+          <div class="mobile-stack-3" style="display:grid; grid-template-columns:repeat(3, 1fr); gap:12px;">
+            <div class="deck-card">
+              <div>
+                <span class="card-label">What Makes EMY Different</span>
+                <h3 class="card-title">Beyond Certificates</h3>
+                <p class="card-body">
+                  EMY is not a school. It does not follow a linear curriculum or issue certificates. It is built around one question: what changed? The gap between the designer who arrived and the designer who left is the only measure that matters here.
+                </p>
+              </div>
+              <div class="card-bottom-tag">Outward growth from the centre</div>
             </div>
-            <div class="deck-card" style="padding:14px; min-height:180px;">
-              <span class="card-label">02 / Internal</span>
-              <h4 style="font-family:var(--font-serif); font-size:15px; margin:4px 0 6px 0;">Self & Voice</h4>
-              <p style="font-size:11px; color:var(--ink-gray); line-height:1.45;">Discover irreducible creative positions and points of view.</p>
+            <div class="deck-card">
+              <div>
+                <span class="card-label">The Pedagogy</span>
+                <h3 class="card-title">Circular Evolution</h3>
+                <p class="card-body">
+                  Most education is a corridor you enter, walk forward, exit with a certificate. EMY grows outward from a centre that keeps getting stronger. The shedding is not loss. It is what happens when new growth makes the old growth unnecessary.
+                </p>
+              </div>
+              <div class="card-bottom-tag">Continuous outward expansion</div>
             </div>
-            <div class="deck-card" style="padding:14px; min-height:180px;">
-              <span class="card-label">03 / External</span>
-              <h4 style="font-family:var(--font-serif); font-size:15px; margin:4px 0 6px 0;">Work & Story</h4>
-              <p style="font-size:11px; color:var(--ink-gray); line-height:1.45;">Transform professional practice, execution, and narrative.</p>
-            </div>
-            <div class="deck-card" style="padding:14px; min-height:180px;">
-              <span class="card-label">04 / Legacy</span>
-              <h4 style="font-family:var(--font-serif); font-size:15px; margin:4px 0 6px 0;">Time & Ethics</h4>
-              <p style="font-size:11px; color:var(--ink-gray); line-height:1.45;">Think beyond deadlines: accountability and permanence.</p>
-            </div>
-            <div class="deck-card" style="padding:14px; min-height:180px; border-color:var(--wine-burgundy);">
-              <span class="card-label" style="color:var(--wine-burgundy);">05 / Restore</span>
-              <h4 style="font-family:var(--font-serif); font-size:15px; margin:4px 0 6px 0;">Wellbeing</h4>
-              <p style="font-size:11px; color:var(--ink-gray); line-height:1.45;">Reconnect with the raw curiosity that brought you to design.</p>
+            <div class="deck-card" style="border-color: var(--wine-burgundy);">
+              <div>
+                <span class="card-label" style="color:var(--wine-burgundy); font-weight:600;">Who Is In The Room</span>
+                <h3 class="card-title">Practitioners Demonstrating Thinking</h3>
+                <p class="card-body">
+                  EMY Designers are not experts delivering expertise. Spatial designers, ceramicists, typographers, filmmakers, brand strategists chosen for the quality of their thinking and generosity of perspective. Not for fame or credential.
+                </p>
+              </div>
+              <div class="card-bottom-tag" style="color:var(--wine-burgundy);">The most interesting people in the room.</div>
             </div>
           </div>
-          <div style="font-family:var(--font-mono); font-size:9.5px; color:var(--ink-gray); border-top:1px dashed var(--border-light); padding-top:8px;">
-            CYCLICAL EXPANSION: Continuous outward growth across seasons of exposure and provocation.
+          <div style="font-family: var(--font-mono); font-size: 9.5px; color: var(--ink-gray); border-top: 1px dashed var(--border-light); padding-top: 6px;">
+            EMY is not exclusive by credential. It is selective by hunger.
           </div>
         </div>
       </main>
       <footer class="slide-footer">
-        <span>4 Layers of Provocation: Foundation &bull; Tension &bull; Question &bull; Human</span>
-        <span>WHERE THE EYE DEVELOPS</span>
+        <span>Cultivation without provocation produces comfort. Provocation without cultivation produces shutdown.</span>
+        <span>emydesignlab.com</span>
       </footer>
     </section>
 
-    <!-- SLIDE 06: INVITATION -->
-    <section class="slide theme-dark" id="slide-6" data-theme="dark">
+    <!-- SLIDE 06: WORKSHOP SUITE & CROSS-DISCIPLINARY ARCHITECTURE (NEW CONSOLIDATED PAGE) -->
+    <section class="slide theme-light" id="slide-6" data-theme="light">
       <main class="canvas">
-        <div class="grid-2col">
-          <div style="display:flex; flex-direction:column; gap:10px;">
-            <div class="deck-card" style="padding:12px 16px;">
-              <span class="card-label">Model 01</span>
-              <h4 style="font-family:var(--font-serif); font-size:15px; color:#FFF;">Academic Institution Licensing</h4>
-              <p class="card-body">Complement existing curricula with post-foundation CQ modules and digital lab access.</p>
-            </div>
-            <div class="deck-card" style="padding:12px 16px;">
-              <span class="card-label">Model 02</span>
-              <h4 style="font-family:var(--font-serif); font-size:15px; color:#FFF;">Agency & Enterprise Sprints</h4>
-              <p class="card-body">Intensive 3-hour bespoke CQ workshops for senior creative teams directing AI systems.</p>
-            </div>
-            <div class="deck-card" style="padding:12px 16px;">
-              <span class="card-label">Model 03</span>
-              <h4 style="font-family:var(--font-serif); font-size:15px; color:#FFF;">Curated Residencies & Salons</h4>
-              <p class="card-body">Co-branded cross-disciplinary conversation series and intimate Vancouver studio workshops.</p>
-            </div>
+        <div style="display:flex; flex-direction:column; width:100%; justify-content:space-between; min-height:100%; gap:10px;">
+          <div>
+            <div class="kicker">Curriculum & Methodology</div>
+            <h2 style="font-family:var(--font-serif); font-size:clamp(20px, 2.4vw, 28px);">The Workshop Suite: Where the Eye Develops.</h2>
           </div>
-          <div style="background:#17181C; border-left:3px solid var(--warm-ochre); padding:22px; display:flex; flex-direction:column; justify-content:space-between; height:100%; min-height: 220px;">
-            <div>
-              <div class="kicker" style="color:var(--warm-ochre);">The Invitation</div>
-              <p style="font-family:var(--font-serif); font-size:17px; line-height:1.45; font-style:italic; color:#FFF; margin-bottom:12px;">
-                "Not in revelations. In residue. The living room is open. The conversation has already begun."
-              </p>
-              <p style="font-size:12px; color:#DDD; line-height:1.55;">
-                Partner with EMY to develop the thinking eye for the designers who will define the next decade.
-              </p>
+
+          <!-- Cross-disciplinary callout module -->
+          <div style="background:var(--ink-black); color:#FFF; padding:12px 18px; border-left:3.5px solid var(--warm-ochre); border-radius:2px;">
+            <span style="font-family:var(--font-mono); font-size:9px; color:var(--warm-ochre); letter-spacing:0.15em; text-transform:uppercase;">The Cross-Disciplinary Difference</span>
+            <p style="font-family:var(--font-serif); font-size:13px; font-style:italic; margin:2px 0 4px 0; color:#FFF;">
+              "EMY does not ask designers to become architects. It asks them to understand how an architect thinks about the same fundamental problem and let that understanding expand their own eye."
+            </p>
+            <p style="font-size:10.5px; color:var(--ink-muted); line-height:1.4;">
+              Not expertise across fields. Intelligence across them. The capacity to find in one discipline something that unlocks another.
+            </p>
+          </div>
+
+          <!-- Categorized modular course cards -->
+          <div class="mobile-stack-4" style="display:grid; grid-template-columns:repeat(4, 1fr); gap:8px;">
+            <!-- Category 1 -->
+            <div class="deck-card" style="padding:10px 12px;">
+              <span class="card-label">01 / Foundation</span>
+              <h4 style="font-family:var(--font-serif); font-size:13px; margin:2px 0;">CQ Intro</h4>
+              <p style="font-size:10px; color:var(--ink-gray); line-height:1.4;">Five modules. Self-paced journey mapping where your CQ lives across all five dimensions.</p>
             </div>
-            <div style="border-top:1px solid rgba(255,255,255,0.1); padding-top:12px; display:flex; justify-content:space-between; align-items:center; font-family:var(--font-mono); font-size:9.5px;">
-              <span style="color:var(--warm-ochre-light);">VANCOUVER &bull; GLOBAL LAB</span>
-              <span style="color:#FFF; font-weight:600;">hello@emydesignlab.com</span>
+            <!-- Category 2 -->
+            <div class="deck-card" style="padding:10px 12px;">
+              <span class="card-label">02 / Know Yourself First</span>
+              <h4 style="font-family:var(--font-serif); font-size:13px; margin:2px 0;">Self & Voice</h4>
+              <p style="font-size:10px; color:var(--ink-gray); line-height:1.4;">Design & Self (honest mirror) + Design & Voice (owning your position and creative point of view).</p>
+            </div>
+            <!-- Category 3 -->
+            <div class="deck-card" style="padding:10px 12px;">
+              <span class="card-label">03 / Develop Practice & Depth</span>
+              <h4 style="font-family:var(--font-serif); font-size:13px; margin:2px 0;">Work, Story, Time & Ethics</h4>
+              <p style="font-size:10px; color:var(--ink-gray); line-height:1.4;">Intention before execution, compelling narrative, surviving deadlines, and ethical responsibility.</p>
+            </div>
+            <!-- Category 4 -->
+            <div class="deck-card" style="padding:10px 12px; border-color:var(--wine-burgundy);">
+              <span class="card-label" style="color:var(--wine-burgundy);">04 / Restore & Renew</span>
+              <h4 style="font-family:var(--font-serif); font-size:13px; margin:2px 0;">Design & Wellbeing</h4>
+              <p style="font-size:10px; color:var(--ink-gray); line-height:1.4;">Half or full day. Provocation and reflection to reconnect with what brought you to design.</p>
             </div>
           </div>
         </div>
       </main>
       <footer class="slide-footer">
-        <span>Open for institutional licensing, agency sprints & partner residencies</span>
+        <span>Sequential to design schools &bull; Continuous outward expansion</span>
+        <span>emydesignlab.com</span>
+      </footer>
+    </section>
+
+    <!-- SLIDE 07: JOIN / INVITATION -->
+    <section class="slide theme-dark" id="slide-7" data-theme="dark">
+      <main class="canvas">
+        <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; max-width:760px; margin:0 auto; width:100%;">
+          <img src="emy-logo.png" alt="EMY Logo" class="brand-logo" style="height:48px; margin-bottom:20px; filter:invert(1) brightness(1.8);">
+          <div class="kicker" style="justify-content:center; color:var(--warm-ochre);">The Invitation</div>
+          <h1 style="font-family:var(--font-serif); font-size:clamp(28px, 4vw, 48px); line-height:1.15; font-weight:400; color:#FFF; margin-bottom:16px;">
+            The eye never lies.<br>It only goes quiet.
+          </h1>
+          <p style="font-size:14px; line-height:1.6; color:var(--ink-muted); margin-bottom:24px; max-width:620px;">
+            When someone has been teaching you not to listen to it. EMY exists to turn the volume back up. The living room is open. The conversation has already begun.
+          </p>
+          <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-bottom:20px;">
+            <a href="mailto:hello@emydesignlab.com?subject=Waitlist%20Inquiry" class="action-btn" style="background:var(--warm-ochre); border-color:var(--warm-ochre); color:#141518; font-weight:600;">Join The Waitlist &rarr;</a>
+            <a href="mailto:hello@emydesignlab.com?subject=Partner%20Inquiry" class="action-btn" style="background:transparent; border-color:rgba(255,255,255,0.25);">Partner With EMY &rarr;</a>
+          </div>
+          <div style="font-family:var(--font-mono); font-size:10px; color:var(--ink-muted); letter-spacing:0.15em;">
+            hello@emydesignlab.com &bull; Vancouver, BC &bull; emydesignlab.com
+          </div>
+        </div>
+      </main>
+      <footer class="slide-footer">
+        <span>Masterclass makes you a spectator of someone else's mastery. EMY makes you more intelligent in your own practice. See you there.</span>
         <span>emydesignlab.com</span>
       </footer>
     </section>
@@ -731,7 +786,7 @@
 
 <script>
   let currentSlide = 1;
-  const totalSlides = 6;
+  const totalSlides = 7;
   const globalHeader = document.getElementById('global-header');
 
   function goToSlide(index) {
@@ -741,14 +796,13 @@
     if (target > totalSlides) target = totalSlides;
     currentSlide = target;
 
-    // Switch active slide
     const slides = document.querySelectorAll('.slide');
     slides.forEach((slide, i) => {
       const isActive = (i + 1 === currentSlide);
       slide.classList.toggle('active', isActive);
       
       if (isActive) {
-        slide.scrollTop = 0; // Reset scroll on switch
+        slide.scrollTop = 0;
         const theme = slide.getAttribute('data-theme');
         if (theme === 'dark') {
           globalHeader.classList.add('dark-mode');
@@ -758,7 +812,6 @@
       }
     });
 
-    // Update navigation buttons
     const navButtons = document.querySelectorAll('.nav-heading-btn');
     navButtons.forEach((btn) => {
       const btnTarget = parseInt(btn.getAttribute('data-slide-target'), 10);
@@ -768,7 +821,6 @@
 
   window.goToSlide = goToSlide;
 
-  // Touch swipe support for mobile
   let touchStartX = 0;
   let touchStartY = 0;
   let touchEndX = 0;
@@ -789,17 +841,15 @@
   function handleSwipe() {
     const diffX = touchEndX - touchStartX;
     const diffY = touchEndY - touchStartY;
-    // Only register horizontal swipes (ignore vertical scrolling)
     if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 40) {
       if (diffX < 0) {
-        goToSlide(currentSlide + 1); // Swipe Left -> Next
+        goToSlide(currentSlide + 1);
       } else {
-        goToSlide(currentSlide - 1); // Swipe Right -> Prev
+        goToSlide(currentSlide - 1);
       }
     }
   }
 
-  // Bind click & tap events
   function initEvents() {
     document.querySelectorAll('[data-slide-target]').forEach(elem => {
       elem.addEventListener('click', (e) => {
@@ -816,7 +866,6 @@
     initEvents();
   }
 
-  // Keyboard navigation
   document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowRight' || e.key === ' ') {
       goToSlide(currentSlide + 1);
@@ -829,10 +878,3 @@
 
 </body>
 </html>
-```eof
-
-### What to do next:
-1. Open your repository on GitHub.
-2. Click on **`index.html`**, click the **Pencil icon** (Edit), select all, and replace everything with the code above.
-3. Click the green **Commit changes** button.
-4. Open **`emydesignlab.com`** on your phone (or in your desktop browser). Test tapping the header buttons and swiping left/right across the screen.
