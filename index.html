@@ -88,6 +88,7 @@
     letter-spacing: 0.15em;
   }
 
+  /* Desktop Navigation */
   .slide-nav-headings {
     display: flex;
     align-items: center;
@@ -123,6 +124,95 @@
     font-weight: 600;
   }
 
+  /* Mobile INDEX Trigger */
+  .mobile-menu-btn {
+    display: none;
+    background: transparent;
+    border: 1px solid var(--border-burgundy);
+    color: var(--wine-burgundy);
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    padding: 6px 12px;
+    border-radius: 2px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  /* Fullscreen Editorial Drawer */
+  .editorial-drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    background: var(--bg-light);
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 24px 28px;
+    transform: translateY(-100%);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .editorial-drawer.open {
+    transform: translateY(0);
+  }
+
+  .drawer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-light);
+    padding-bottom: 16px;
+  }
+
+  .drawer-close-btn {
+    background: transparent;
+    border: none;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--wine-burgundy);
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 700;
+  }
+
+  .drawer-nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin: auto 0;
+  }
+
+  .drawer-link {
+    font-family: var(--font-serif);
+    font-size: 22px;
+    color: var(--ink-black);
+    text-decoration: none;
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    transition: color 0.2s;
+  }
+
+  .drawer-link span {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--wine-burgundy);
+    letter-spacing: 0.1em;
+  }
+
+  .drawer-link.active {
+    color: var(--wine-burgundy);
+    font-weight: 600;
+  }
+
+  /* Slide Viewport */
   .slide-viewport {
     flex: 1;
     position: relative;
@@ -246,7 +336,6 @@
     box-shadow: 0 2px 8px rgba(139, 26, 43, 0.04);
   }
 
-  /* Borderless Cards */
   .deck-card-borderless {
     border: none !important;
     background: var(--card-white);
@@ -346,26 +435,15 @@
 
   @media (max-width: 900px) {
     header.global-masthead {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 10px;
-      padding: 10px 16px;
+      padding: 12px 18px;
     }
 
     .slide-nav-headings {
-      width: 100%;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      padding-bottom: 4px;
-      scrollbar-width: none;
-    }
-    .slide-nav-headings::-webkit-scrollbar {
       display: none;
     }
-    .nav-heading-btn {
-      padding: 5px 8px;
-      font-size: 9px;
-      flex-shrink: 0;
+
+    .mobile-menu-btn {
+      display: block;
     }
 
     .canvas {
@@ -408,9 +486,6 @@
 
 <div class="deck-container">
 
-  <!-- ==========================================
-       TOP MASTHEAD NAVIGATION
-       ========================================== -->
   <header class="global-masthead" id="global-header">
     <div class="brand-group" data-slide-target="1">
       <img src="emy-logo.png" alt="EMY Logo" class="brand-logo">
@@ -419,6 +494,7 @@
         <div class="brand-subtitle">CREATIVE INTELLIGENCE PLATFORM</div>
       </div>
     </div>
+
     <nav class="slide-nav-headings">
       <button class="nav-heading-btn active" data-slide-target="1">01 / Home</button>
       <button class="nav-heading-btn" data-slide-target="2">02 / The Problem</button>
@@ -428,14 +504,33 @@
       <button class="nav-heading-btn" data-slide-target="6">06 / Workshop Suite</button>
       <button class="nav-heading-btn" data-slide-target="7">07 / Join</button>
     </nav>
+
+    <button class="mobile-menu-btn" id="open-drawer-btn">Index &equiv;</button>
   </header>
 
-  <!-- ==========================================
-       SLIDE VIEWPORT
-       ========================================== -->
+  <div class="editorial-drawer" id="mobile-drawer">
+    <div class="drawer-header">
+      <div class="brand-title">EMY DESIGN LAB</div>
+      <button class="drawer-close-btn" id="close-drawer-btn">&times; Close</button>
+    </div>
+    
+    <nav class="drawer-nav-list">
+      <a href="javascript:void(0)" class="drawer-link active" data-slide-target="1"><span>01</span> Home</a>
+      <a href="javascript:void(0)" class="drawer-link" data-slide-target="2"><span>02</span> The Problem</a>
+      <a href="javascript:void(0)" class="drawer-link" data-slide-target="3"><span>03</span> The Solution</a>
+      <a href="javascript:void(0)" class="drawer-link" data-slide-target="4"><span>04</span> How It Works</a>
+      <a href="javascript:void(0)" class="drawer-link" data-slide-target="5"><span>05</span> The Living Room</a>
+      <a href="javascript:void(0)" class="drawer-link" data-slide-target="6"><span>06</span> Workshop Suite</a>
+      <a href="javascript:void(0)" class="drawer-link" data-slide-target="7"><span>07</span> Join & Invitation</a>
+    </nav>
+
+    <div style="font-family: var(--font-mono); font-size: 9px; color: var(--wine-burgundy); letter-spacing: 0.15em; text-transform: uppercase;">
+      Swipe left / right to browse directly
+    </div>
+  </div>
+
   <div class="slide-viewport" id="viewport-touch-zone">
 
-    <!-- SLIDE 01: HOME -->
     <section class="slide active" id="slide-1">
       <main class="canvas">
         <div class="slide-inner-centered">
@@ -472,7 +567,6 @@
       </footer>
     </section>
 
-    <!-- SLIDE 02: THE PROBLEM -->
     <section class="slide" id="slide-2">
       <main class="canvas">
         <div class="slide-inner-centered">
@@ -528,7 +622,6 @@
       </footer>
     </section>
 
-    <!-- SLIDE 03: THE SOLUTION -->
     <section class="slide" id="slide-3">
       <main class="canvas">
         <div class="slide-inner-centered">
@@ -555,7 +648,6 @@
             </div>
           </div>
 
-          <!-- Borderless Lower 4 Capability Cards -->
           <div class="mobile-stack-4" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
             <div class="deck-card-borderless">
               <span class="card-label">Perceptual Training</span>
@@ -582,7 +674,6 @@
       </footer>
     </section>
 
-    <!-- SLIDE 04: HOW IT WORKS -->
     <section class="slide" id="slide-4">
       <main class="canvas">
         <div class="slide-inner-centered">
@@ -626,7 +717,6 @@
               <div class="card-bottom-tag">Selective by hunger. Not credential.</div>
             </div>
           </div>
-          <!-- Borderless Explore Banner -->
           <div style="display:flex; justify-content:space-between; align-items:center; background:var(--card-white); padding:12px 18px; border-radius:3px; box-shadow: 0 2px 8px rgba(0,0,0,0.03);">
             <span style="font-family:var(--font-mono); font-size:10px; color:var(--wine-burgundy); font-weight:600;">EXPLORE THE WORKSHOP SUITES</span>
             <a href="javascript:void(0)" onclick="goToSlide(6)" style="font-family:var(--font-mono); font-size:10px; color:var(--ink-black); text-decoration:underline; font-weight:600;">View All Courses &rarr;</a>
@@ -639,7 +729,6 @@
       </footer>
     </section>
 
-    <!-- SLIDE 05: THE LIVING ROOM -->
     <section class="slide" id="slide-5">
       <main class="canvas">
         <div class="slide-inner-centered">
@@ -690,7 +779,6 @@
       </footer>
     </section>
 
-    <!-- SLIDE 06: WORKSHOP SUITE -->
     <section class="slide" id="slide-6">
       <main class="canvas">
         <div class="slide-inner-centered" style="gap:10px;">
@@ -699,16 +787,13 @@
             <h2 style="font-family:var(--font-serif); font-size:clamp(18px, 2.2vw, 24px);">Where the eye develops.</h2>
           </div>
 
-          <!-- Cross-Disciplinary Banner -->
           <div style="background:var(--card-white); border: 1px solid var(--border-burgundy); padding:10px 14px; border-left:3.5px solid var(--wine-burgundy); border-radius:3px;">
             <span style="font-family:var(--font-mono); font-size:8.5px; color:var(--wine-burgundy); letter-spacing:0.12em; text-transform:uppercase; font-weight:600;">The Cross-Disciplinary Difference</span>
             <p style="font-size:11px; font-style:italic; color:var(--ink-black); margin:2px 0;">"EMY does not ask designers to become architects. It asks them to understand how an architect thinks about the same fundamental problem and let that expand their own eye."</p>
           </div>
 
-          <!-- 5-Column Workshop Grid (Borderless Inner Pill Cards) -->
           <div class="mobile-stack-5" style="display:grid; grid-template-columns:repeat(5, 1fr); gap:8px; align-items:stretch;">
             
-            <!-- 01 / CQ Foundations -->
             <div class="deck-card slide6-column-card">
               <span class="card-label">01 / Foundation</span>
               <div class="course-pill-card" style="flex:1;">
@@ -718,7 +803,6 @@
               </div>
             </div>
 
-            <!-- 02 / Know Yourself First -->
             <div class="deck-card slide6-column-card">
               <span class="card-label">02 / Know Yourself</span>
               <div style="display:flex; flex-direction:column; gap:6px; flex:1;">
@@ -733,7 +817,6 @@
               </div>
             </div>
 
-            <!-- 03 / Develop Your Practice -->
             <div class="deck-card slide6-column-card">
               <span class="card-label">03 / Your Practice</span>
               <div style="display:flex; flex-direction:column; gap:6px; flex:1;">
@@ -748,7 +831,6 @@
               </div>
             </div>
 
-            <!-- 04 / Go Deeper -->
             <div class="deck-card slide6-column-card">
               <span class="card-label">04 / Go Deeper</span>
               <div style="display:flex; flex-direction:column; gap:6px; flex:1;">
@@ -763,7 +845,6 @@
               </div>
             </div>
 
-            <!-- 05 / Restore and Renew -->
             <div class="deck-card slide6-column-card">
               <span class="card-label">05 / Restore & Renew</span>
               <div class="course-pill-card" style="flex:1;">
@@ -781,7 +862,6 @@
       </footer>
     </section>
 
-    <!-- SLIDE 07: JOIN -->
     <section class="slide" id="slide-7">
       <main class="canvas">
         <div class="slide-inner-centered" style="align-items:center; text-align:center; max-width:880px;">
@@ -820,6 +900,7 @@
 <script>
   let currentSlide = 1;
   const totalSlides = 7;
+  const drawer = document.getElementById('mobile-drawer');
 
   function goToSlide(index) {
     let target = parseInt(index, 10);
@@ -837,15 +918,33 @@
       }
     });
 
+    // Update Desktop Nav
     const navButtons = document.querySelectorAll('.nav-heading-btn');
     navButtons.forEach((btn) => {
       const btnTarget = parseInt(btn.getAttribute('data-slide-target'), 10);
       btn.classList.toggle('active', btnTarget === currentSlide);
     });
+
+    // Update Drawer Links & close
+    const drawerLinks = document.querySelectorAll('.drawer-link');
+    drawerLinks.forEach((link) => {
+      const linkTarget = parseInt(link.getAttribute('data-slide-target'), 10);
+      link.classList.toggle('active', linkTarget === currentSlide);
+    });
+    drawer.classList.remove('open');
   }
 
   window.goToSlide = goToSlide;
 
+  // Drawer Toggle Handlers
+  document.getElementById('open-drawer-btn').addEventListener('click', () => {
+    drawer.classList.add('open');
+  });
+  document.getElementById('close-drawer-btn').addEventListener('click', () => {
+    drawer.classList.remove('open');
+  });
+
+  // Swipe handlers for mobile
   let touchStartX = 0;
   let touchStartY = 0;
   let touchEndX = 0;
@@ -864,6 +963,7 @@
   }, { passive: true });
 
   function handleSwipe() {
+    if (drawer.classList.contains('open')) return;
     const diffX = touchEndX - touchStartX;
     const diffY = touchEndY - touchStartY;
     if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 40) {
