@@ -246,6 +246,18 @@
     box-shadow: 0 2px 8px rgba(139, 26, 43, 0.04);
   }
 
+  /* Borderless Cards */
+  .deck-card-borderless {
+    border: none !important;
+    background: var(--card-white);
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 3px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  }
+
   .card-label {
     font-family: var(--font-mono);
     font-size: 9px;
@@ -301,7 +313,7 @@
 
   .course-pill-card {
     background: var(--card-pill);
-    border: 1px solid var(--border-burgundy);
+    border: none !important;
     padding: 12px 14px;
     border-radius: 2px;
     display: flex;
@@ -396,6 +408,9 @@
 
 <div class="deck-container">
 
+  <!-- ==========================================
+       TOP MASTHEAD NAVIGATION
+       ========================================== -->
   <header class="global-masthead" id="global-header">
     <div class="brand-group" data-slide-target="1">
       <img src="emy-logo.png" alt="EMY Logo" class="brand-logo">
@@ -415,8 +430,12 @@
     </nav>
   </header>
 
+  <!-- ==========================================
+       SLIDE VIEWPORT
+       ========================================== -->
   <div class="slide-viewport" id="viewport-touch-zone">
 
+    <!-- SLIDE 01: HOME -->
     <section class="slide active" id="slide-1">
       <main class="canvas">
         <div class="slide-inner-centered">
@@ -453,6 +472,7 @@
       </footer>
     </section>
 
+    <!-- SLIDE 02: THE PROBLEM -->
     <section class="slide" id="slide-2">
       <main class="canvas">
         <div class="slide-inner-centered">
@@ -508,6 +528,7 @@
       </footer>
     </section>
 
+    <!-- SLIDE 03: THE SOLUTION -->
     <section class="slide" id="slide-3">
       <main class="canvas">
         <div class="slide-inner-centered">
@@ -534,20 +555,21 @@
             </div>
           </div>
 
+          <!-- Borderless Lower 4 Capability Cards -->
           <div class="mobile-stack-4" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
-            <div class="deck-card" style="padding: 12px 14px;">
+            <div class="deck-card-borderless">
               <span class="card-label">Perceptual Training</span>
               <p style="font-size: 11px; color: var(--ink-gray); line-height: 1.45;">The eye before the software. Learning to see what works before you can explain why.</p>
             </div>
-            <div class="deck-card" style="padding: 12px 14px;">
+            <div class="deck-card-borderless">
               <span class="card-label">Creative Authorship</span>
               <p style="font-size: 11px; color: var(--ink-gray); line-height: 1.45;">The ability to articulate ideas, defend creative decisions and tell the story of the work.</p>
             </div>
-            <div class="deck-card" style="padding: 12px 14px;">
+            <div class="deck-card-borderless">
               <span class="card-label">Cognitive Distinction</span>
               <p style="font-size: 11px; color: var(--ink-gray); line-height: 1.45;">A creative perspective that is unmistakably yours. Not slightly faster. Genuinely different.</p>
             </div>
-            <div class="deck-card" style="padding: 12px 14px;">
+            <div class="deck-card-borderless">
               <span class="card-label">Timeless Craft</span>
               <p style="font-size: 11px; color: var(--ink-gray); line-height: 1.45;">Instincts and principles that outlast every tool update: proportion, tension, meaning, restraint.</p>
             </div>
@@ -560,6 +582,7 @@
       </footer>
     </section>
 
+    <!-- SLIDE 04: HOW IT WORKS -->
     <section class="slide" id="slide-4">
       <main class="canvas">
         <div class="slide-inner-centered">
@@ -603,7 +626,8 @@
               <div class="card-bottom-tag">Selective by hunger. Not credential.</div>
             </div>
           </div>
-          <div style="display:flex; justify-content:space-between; align-items:center; background:var(--card-white); border: 1px solid var(--border-burgundy); padding:10px 16px; border-radius:3px;">
+          <!-- Borderless Explore Banner -->
+          <div style="display:flex; justify-content:space-between; align-items:center; background:var(--card-white); padding:12px 18px; border-radius:3px; box-shadow: 0 2px 8px rgba(0,0,0,0.03);">
             <span style="font-family:var(--font-mono); font-size:10px; color:var(--wine-burgundy); font-weight:600;">EXPLORE THE WORKSHOP SUITES</span>
             <a href="javascript:void(0)" onclick="goToSlide(6)" style="font-family:var(--font-mono); font-size:10px; color:var(--ink-black); text-decoration:underline; font-weight:600;">View All Courses &rarr;</a>
           </div>
@@ -615,6 +639,7 @@
       </footer>
     </section>
 
+    <!-- SLIDE 05: THE LIVING ROOM -->
     <section class="slide" id="slide-5">
       <main class="canvas">
         <div class="slide-inner-centered">
@@ -665,6 +690,7 @@
       </footer>
     </section>
 
+    <!-- SLIDE 06: WORKSHOP SUITE -->
     <section class="slide" id="slide-6">
       <main class="canvas">
         <div class="slide-inner-centered" style="gap:10px;">
@@ -673,13 +699,16 @@
             <h2 style="font-family:var(--font-serif); font-size:clamp(18px, 2.2vw, 24px);">Where the eye develops.</h2>
           </div>
 
+          <!-- Cross-Disciplinary Banner -->
           <div style="background:var(--card-white); border: 1px solid var(--border-burgundy); padding:10px 14px; border-left:3.5px solid var(--wine-burgundy); border-radius:3px;">
             <span style="font-family:var(--font-mono); font-size:8.5px; color:var(--wine-burgundy); letter-spacing:0.12em; text-transform:uppercase; font-weight:600;">The Cross-Disciplinary Difference</span>
             <p style="font-size:11px; font-style:italic; color:var(--ink-black); margin:2px 0;">"EMY does not ask designers to become architects. It asks them to understand how an architect thinks about the same fundamental problem and let that expand their own eye."</p>
           </div>
 
+          <!-- 5-Column Workshop Grid (Borderless Inner Pill Cards) -->
           <div class="mobile-stack-5" style="display:grid; grid-template-columns:repeat(5, 1fr); gap:8px; align-items:stretch;">
             
+            <!-- 01 / CQ Foundations -->
             <div class="deck-card slide6-column-card">
               <span class="card-label">01 / Foundation</span>
               <div class="course-pill-card" style="flex:1;">
@@ -689,6 +718,7 @@
               </div>
             </div>
 
+            <!-- 02 / Know Yourself First -->
             <div class="deck-card slide6-column-card">
               <span class="card-label">02 / Know Yourself</span>
               <div style="display:flex; flex-direction:column; gap:6px; flex:1;">
@@ -703,6 +733,7 @@
               </div>
             </div>
 
+            <!-- 03 / Develop Your Practice -->
             <div class="deck-card slide6-column-card">
               <span class="card-label">03 / Your Practice</span>
               <div style="display:flex; flex-direction:column; gap:6px; flex:1;">
@@ -717,6 +748,7 @@
               </div>
             </div>
 
+            <!-- 04 / Go Deeper -->
             <div class="deck-card slide6-column-card">
               <span class="card-label">04 / Go Deeper</span>
               <div style="display:flex; flex-direction:column; gap:6px; flex:1;">
@@ -731,6 +763,7 @@
               </div>
             </div>
 
+            <!-- 05 / Restore and Renew -->
             <div class="deck-card slide6-column-card">
               <span class="card-label">05 / Restore & Renew</span>
               <div class="course-pill-card" style="flex:1;">
@@ -748,6 +781,7 @@
       </footer>
     </section>
 
+    <!-- SLIDE 07: JOIN -->
     <section class="slide" id="slide-7">
       <main class="canvas">
         <div class="slide-inner-centered" style="align-items:center; text-align:center; max-width:880px;">
