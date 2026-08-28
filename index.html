@@ -124,20 +124,26 @@
     font-weight: 600;
   }
 
-  /* Mobile INDEX Trigger */
+  /* Mobile 3-Lines Trigger Button */
   .mobile-menu-btn {
     display: none;
     background: transparent;
     border: 1px solid var(--border-burgundy);
     color: var(--wine-burgundy);
-    font-family: var(--font-mono);
-    font-size: 10px;
-    letter-spacing: 0.15em;
-    padding: 6px 12px;
-    border-radius: 2px;
+    padding: 8px 10px;
+    border-radius: 3px;
     cursor: pointer;
-    text-transform: uppercase;
-    font-weight: 600;
+    line-height: 0;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .mobile-menu-btn svg {
+    display: block;
+    width: 22px;
+    height: 16px;
+    stroke: var(--wine-burgundy);
+    stroke-width: 2.2;
+    stroke-linecap: round;
   }
 
   /* Fullscreen Editorial Drawer */
@@ -443,7 +449,9 @@
     }
 
     .mobile-menu-btn {
-      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .canvas {
@@ -505,7 +513,13 @@
       <button class="nav-heading-btn" data-slide-target="7">07 / Join</button>
     </nav>
 
-    <button class="mobile-menu-btn" id="open-drawer-btn">Index &equiv;</button>
+    <button class="mobile-menu-btn" id="open-drawer-btn" aria-label="Open Navigation">
+      <svg viewBox="0 0 24 18" fill="none">
+        <line x1="1" y1="2" x2="23" y2="2" />
+        <line x1="1" y1="9" x2="23" y2="9" />
+        <line x1="1" y1="16" x2="23" y2="16" />
+      </svg>
+    </button>
   </header>
 
   <div class="editorial-drawer" id="mobile-drawer">
