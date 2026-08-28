@@ -229,7 +229,7 @@
   }
 
   .slide1-hero-logo {
-    height: clamp(84px, 12vw, 150px);
+    height: 160px;
     width: auto;
     object-fit: contain;
     display: block;
@@ -417,9 +417,7 @@
 
 <div class="deck-container">
 
-  <!-- ==========================================
-       TOP MASTHEAD NAVIGATION (7 BUTTONS)
-       ========================================== -->
+  <!-- TOP MASTHEAD NAVIGATION (7 BUTTONS) -->
   <header class="global-masthead" id="global-header">
     <div class="brand-group" data-slide-target="1">
       <img src="emy-logo.png" alt="EMY Logo" class="brand-logo">
@@ -439,9 +437,7 @@
     </nav>
   </header>
 
-  <!-- ==========================================
-       SLIDE VIEWPORT
-       ========================================== -->
+  <!-- SLIDE VIEWPORT -->
   <div class="slide-viewport" id="viewport-touch-zone">
 
     <!-- SLIDE 01: HOME -->
@@ -636,8 +632,8 @@
             </div>
           </div>
           <div style="display:flex; justify-content:space-between; align-items:center; background:var(--ink-black); color:#FFF; padding:10px 16px; border-radius:2px;">
-            <span style="font-family:var(--font-mono); font-size:10px; color:var(--warm-ochre);">NEXT: EXPLORE THE FULL METHODOLOGY & WORKSHOP SUITE</span>
-            <a href="javascript:void(0)" onclick="goToSlide(6)" style="font-family:var(--font-mono); font-size:10px; color:#FFF; text-decoration:underline;">View Workshop Arc &rarr;</a>
+            <span style="font-family:var(--font-mono); font-size:10px; color:var(--warm-ochre);">EXPLORE THE SUITE OF 5-WEEK WORKSHOPS</span>
+            <a href="javascript:void(0)" onclick="goToSlide(6)" style="font-family:var(--font-mono); font-size:10px; color:#FFF; text-decoration:underline;">View All Courses &rarr;</a>
           </div>
         </div>
       </main>
@@ -698,13 +694,13 @@
       </footer>
     </section>
 
-    <!-- SLIDE 06: WORKSHOP SUITE & CROSS-DISCIPLINARY ARCHITECTURE (NEW CONSOLIDATED PAGE) -->
+    <!-- SLIDE 06: WORKSHOP SUITE (YOUR EXACT TEXT WITH CATEGORIES & CROSS-DISCIPLINARY CALLOUT) -->
     <section class="slide theme-light" id="slide-6" data-theme="light">
       <main class="canvas">
         <div style="display:flex; flex-direction:column; width:100%; justify-content:space-between; min-height:100%; gap:10px;">
           <div>
-            <div class="kicker">Curriculum & Methodology</div>
-            <h2 style="font-family:var(--font-serif); font-size:clamp(20px, 2.4vw, 28px);">The Workshop Suite: Where the Eye Develops.</h2>
+            <div class="kicker">The Workshop Suite</div>
+            <h2 style="font-family:var(--font-serif); font-size:clamp(20px, 2.4vw, 28px);">Where the eye develops.</h2>
           </div>
 
           <!-- Cross-disciplinary callout module -->
@@ -718,32 +714,41 @@
             </p>
           </div>
 
-          <!-- Categorized modular course cards -->
+          <!-- Structured Course Pillars -->
           <div class="mobile-stack-4" style="display:grid; grid-template-columns:repeat(4, 1fr); gap:8px;">
-            <!-- Category 1 -->
+            
+            <!-- Category 1: CQ Intro -->
             <div class="deck-card" style="padding:10px 12px;">
               <span class="card-label">01 / Foundation</span>
-              <h4 style="font-family:var(--font-serif); font-size:13px; margin:2px 0;">CQ Intro</h4>
-              <p style="font-size:10px; color:var(--ink-gray); line-height:1.4;">Five modules. Self-paced journey mapping where your CQ lives across all five dimensions.</p>
+              <h4 style="font-family:var(--font-serif); font-size:13px; margin:2px 0;">CQ Introduction</h4>
+              <p style="font-size:9.5px; font-family:var(--font-mono); color:var(--warm-ochre); margin-bottom:4px;">Five modules. One shift in how you see.</p>
+              <p style="font-size:10px; color:var(--ink-gray); line-height:1.4;">Self-paced journey through all 5 dimensions. Complete an assessment, respond to your first provocation, and map where your CQ is ready to grow.</p>
             </div>
-            <!-- Category 2 -->
+
+            <!-- Category 2: Know Yourself First -->
             <div class="deck-card" style="padding:10px 12px;">
               <span class="card-label">02 / Know Yourself First</span>
               <h4 style="font-family:var(--font-serif); font-size:13px; margin:2px 0;">Self & Voice</h4>
-              <p style="font-size:10px; color:var(--ink-gray); line-height:1.4;">Design & Self (honest mirror) + Design & Voice (owning your position and creative point of view).</p>
+              <p style="font-size:9.5px; font-family:var(--font-mono); color:var(--warm-ochre); margin-bottom:4px;">Two 5-Week Modules</p>
+              <p style="font-size:10px; color:var(--ink-gray); line-height:1.4;"><strong>Design & Self:</strong> Making without outcome for genuine self-discovery.<br><strong>Design & Voice:</strong> Develop a confident creative POV to walk into any room and own it.</p>
             </div>
-            <!-- Category 3 -->
+
+            <!-- Category 3: Practice & Depth -->
             <div class="deck-card" style="padding:10px 12px;">
-              <span class="card-label">03 / Develop Practice & Depth</span>
+              <span class="card-label">03 / Practice & Depth</span>
               <h4 style="font-family:var(--font-serif); font-size:13px; margin:2px 0;">Work, Story, Time & Ethics</h4>
-              <p style="font-size:10px; color:var(--ink-gray); line-height:1.4;">Intention before execution, compelling narrative, surviving deadlines, and ethical responsibility.</p>
+              <p style="font-size:9.5px; font-family:var(--font-mono); color:var(--warm-ochre); margin-bottom:4px;">Four 5-Week Modules</p>
+              <p style="font-size:10px; color:var(--ink-gray); line-height:1.4;"><strong>Work & Story:</strong> Intention before execution & narrative clarity.<br><strong>Time & Ethics:</strong> Asking the questions that outlast the brief and turn good designers into necessary ones.</p>
             </div>
-            <!-- Category 4 -->
+
+            <!-- Category 4: Restore and Renew -->
             <div class="deck-card" style="padding:10px 12px; border-color:var(--wine-burgundy);">
-              <span class="card-label" style="color:var(--wine-burgundy);">04 / Restore & Renew</span>
+              <span class="card-label" style="color:var(--wine-burgundy);">04 / Restore and Renew</span>
               <h4 style="font-family:var(--font-serif); font-size:13px; margin:2px 0;">Design & Wellbeing</h4>
-              <p style="font-size:10px; color:var(--ink-gray); line-height:1.4;">Half or full day. Provocation and reflection to reconnect with what brought you to design.</p>
+              <p style="font-size:9.5px; font-family:var(--font-mono); color:var(--wine-burgundy); margin-bottom:4px;">Half or Full Day Intensive</p>
+              <p style="font-size:10px; color:var(--ink-gray); line-height:1.4;">Reconnect with the curiosity, thinking, and feeling that brought you to creative work. For individuals and organizations across every sector.</p>
             </div>
+
           </div>
         </div>
       </main>
