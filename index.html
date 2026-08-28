@@ -11,6 +11,8 @@
   :root {
     --bg-light: #F4F1EA;
     --bg-dark: #141518;
+    --bg-dark-card: #1F2126;
+    --bg-dark-card-inner: #262930;
     --ink-black: #1A1B1E;
     --ink-gray: #555861;
     --ink-muted: #9497A1;
@@ -18,7 +20,7 @@
     --warm-ochre: #E07A28;
     --warm-ochre-light: #F39C42;
     --border-light: rgba(26, 27, 30, 0.12);
-    --border-dark: rgba(244, 241, 234, 0.14);
+    --border-dark: rgba(244, 241, 234, 0.12);
     --font-serif: 'Cinzel', serif;
     --font-sans: 'Plus Jakarta Sans', sans-serif;
     --font-mono: 'IBM Plex Mono', monospace;
@@ -197,16 +199,27 @@
     color: var(--bg-light);
   }
 
+  /* Centered Canvas Container */
   .canvas {
     flex: 1;
     position: relative;
     padding: 24px 36px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     max-width: 1360px;
     margin: 0 auto;
     width: 100%;
+  }
+
+  .slide-inner-centered {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+    margin: auto 0;
   }
 
   .slide-footer {
@@ -229,7 +242,7 @@
   }
 
   .slide1-hero-logo {
-    height: 160px;
+    height: 150px;
     width: auto;
     object-fit: contain;
     display: block;
@@ -295,7 +308,7 @@
   }
   .theme-dark .deck-card {
     border-color: var(--border-dark);
-    background: rgba(255,255,255,0.03);
+    background: var(--bg-dark-card);
   }
 
   .card-label {
@@ -312,7 +325,7 @@
   }
   .card-title {
     font-family: var(--font-serif);
-    font-size: 18px;
+    font-size: 17px;
     margin-bottom: 6px;
   }
   .card-body {
@@ -357,6 +370,26 @@
     border-color: var(--wine-burgundy);
   }
 
+  .course-pill-card {
+    background: rgba(255,255,255,0.7);
+    border: 1px solid var(--border-light);
+    padding: 12px 14px;
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .course-pill-card h5 {
+    font-family: var(--font-serif);
+    font-size: 13.5px;
+    margin-bottom: 4px;
+  }
+  .course-pill-card p {
+    font-size: 10.5px;
+    line-height: 1.4;
+    color: var(--ink-gray);
+  }
+
   @media (max-width: 900px) {
     header.global-masthead {
       flex-direction: column;
@@ -383,7 +416,11 @@
 
     .canvas {
       padding: 16px 16px 36px 16px;
-      align-items: flex-start;
+      justify-content: flex-start;
+    }
+
+    .slide-inner-centered {
+      margin: 0;
     }
 
     .grid-2col {
@@ -417,7 +454,9 @@
 
 <div class="deck-container">
 
-  <!-- TOP MASTHEAD NAVIGATION (7 BUTTONS) -->
+  <!-- ==========================================
+       TOP MASTHEAD NAVIGATION
+       ========================================== -->
   <header class="global-masthead" id="global-header">
     <div class="brand-group" data-slide-target="1">
       <img src="emy-logo.png" alt="EMY Logo" class="brand-logo">
@@ -437,35 +476,39 @@
     </nav>
   </header>
 
-  <!-- SLIDE VIEWPORT -->
+  <!-- ==========================================
+       SLIDE VIEWPORT (CENTERED CANVAS)
+       ========================================== -->
   <div class="slide-viewport" id="viewport-touch-zone">
 
     <!-- SLIDE 01: HOME -->
     <section class="slide theme-light active" id="slide-1" data-theme="light">
       <main class="canvas">
-        <div class="grid-2col">
-          <div>
-            <img src="emy-logo.png" alt="EMY Logo" class="slide1-hero-logo">
-            <div class="kicker">Creative Intelligence</div>
-            <h1 class="headline-giant">You got into design because you saw things <em>differently</em>.</h1>
-            <p style="font-size: 13.5px; line-height: 1.55; color: var(--ink-gray); border-left: 2px solid var(--wine-burgundy); padding-left: 14px; margin-bottom: 14px;">
-              EMY Design Lab is a living room for designers who sense there is more beneath the surface of their practice and are ready to find it. We develop Creative Intelligence. Not to make you better. To make you different.
-            </p>
-            <p style="font-size: 12px; color: var(--ink-gray); margin-bottom: 18px;">
-              For the mid-career designer whose work no longer surprises them. For the beginner who already senses there is more. For anyone whose work requires original thought.
-            </p>
-            <a href="javascript:void(0)" onclick="goToSlide(7)" class="action-btn">Join The Waitlist &rarr;</a>
-          </div>
-          <div style="display: flex; justify-content: center; align-items: center;">
-            <svg viewBox="0 0 300 200" width="85%" max-width="300" fill="none">
-              <circle cx="150" cy="100" r="90" stroke="#1A1B1E" stroke-width="0.75" stroke-dasharray="4 4"/>
-              <path d="M 20,100 Q 150,-20 280,100 Q 150,220 20,100 Z" stroke="#1A1B1E" stroke-width="1.6"/>
-              <circle cx="150" cy="100" r="44" fill="#1A1B1E"/>
-              <circle cx="150" cy="100" r="20" fill="var(--bg-light)"/>
-              <circle cx="156" cy="94" r="6" fill="#8B1A2B"/>
-              <line x1="150" y1="5" x2="150" y2="195" stroke="#8B1A2B" stroke-width="0.8" stroke-dasharray="4 2"/>
-              <line x1="5" y1="100" x2="295" y2="100" stroke="#1A1B1E" stroke-width="0.5"/>
-            </svg>
+        <div class="slide-inner-centered">
+          <div class="grid-2col">
+            <div>
+              <img src="emy-logo.png" alt="EMY Logo" class="slide1-hero-logo">
+              <div class="kicker">Creative Intelligence</div>
+              <h1 class="headline-giant">You got into design because you saw things <em>differently</em>.</h1>
+              <p style="font-size: 13.5px; line-height: 1.55; color: var(--ink-gray); border-left: 2px solid var(--wine-burgundy); padding-left: 14px; margin-bottom: 14px;">
+                EMY Design Lab is a living room for designers who sense there is more beneath the surface of their practice and are ready to find it. We develop Creative Intelligence. Not to make you better. To make you different.
+              </p>
+              <p style="font-size: 12px; color: var(--ink-gray); margin-bottom: 18px;">
+                For the mid-career designer whose work no longer surprises them. For the beginner who already senses there is more. For anyone whose work requires original thought.
+              </p>
+              <a href="javascript:void(0)" onclick="goToSlide(7)" class="action-btn">Join The Waitlist &rarr;</a>
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center;">
+              <svg viewBox="0 0 300 200" width="85%" max-width="300" fill="none">
+                <circle cx="150" cy="100" r="90" stroke="#1A1B1E" stroke-width="0.75" stroke-dasharray="4 4"/>
+                <path d="M 20,100 Q 150,-20 280,100 Q 150,220 20,100 Z" stroke="#1A1B1E" stroke-width="1.6"/>
+                <circle cx="150" cy="100" r="44" fill="#1A1B1E"/>
+                <circle cx="150" cy="100" r="20" fill="var(--bg-light)"/>
+                <circle cx="156" cy="94" r="6" fill="#8B1A2B"/>
+                <line x1="150" y1="5" x2="150" y2="195" stroke="#8B1A2B" stroke-width="0.8" stroke-dasharray="4 2"/>
+                <line x1="5" y1="100" x2="295" y2="100" stroke="#1A1B1E" stroke-width="0.5"/>
+              </svg>
+            </div>
           </div>
         </div>
       </main>
@@ -478,7 +521,7 @@
     <!-- SLIDE 02: THE PROBLEM -->
     <section class="slide theme-light" id="slide-2" data-theme="light">
       <main class="canvas">
-        <div style="display:flex; flex-direction:column; width:100%; justify-content:space-between; min-height:100%; gap:12px;">
+        <div class="slide-inner-centered">
           <div>
             <div class="kicker">Why Now</div>
             <h2 style="font-family: var(--font-serif); font-size: clamp(22px, 2.6vw, 30px); line-height: 1.15; margin-bottom: 6px;">
@@ -535,10 +578,10 @@
       </footer>
     </section>
 
-    <!-- SLIDE 03: THE SOLUTION -->
+    <!-- SLIDE 03: THE SOLUTION (DARK GREY THEME) -->
     <section class="slide theme-dark" id="slide-3" data-theme="dark">
       <main class="canvas">
-        <div style="display:flex; flex-direction:column; width:100%; justify-content:space-between; min-height:100%; gap:12px;">
+        <div class="slide-inner-centered">
           <div class="mobile-stack-3" style="display: grid; grid-template-columns: 0.85fr 0.85fr 1.3fr; gap: 14px; width: 100%; align-items: stretch;">
             <div class="deck-card">
               <span class="card-label" style="color:var(--ink-muted);">Rational</span>
@@ -563,19 +606,19 @@
           </div>
 
           <div class="mobile-stack-4" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
-            <div class="deck-card" style="padding: 10px 12px;">
+            <div class="deck-card" style="padding: 10px 12px; background: var(--bg-dark-card-inner);">
               <span class="card-label" style="color:var(--warm-ochre);">Perceptual Training</span>
               <p style="font-size: 10.5px; color: #DDD; line-height: 1.4;">The eye before the software. Learning to see what works before you can explain why.</p>
             </div>
-            <div class="deck-card" style="padding: 10px 12px;">
+            <div class="deck-card" style="padding: 10px 12px; background: var(--bg-dark-card-inner);">
               <span class="card-label" style="color:var(--warm-ochre);">Creative Authorship</span>
               <p style="font-size: 10.5px; color: #DDD; line-height: 1.4;">The ability to articulate ideas, defend creative decisions and tell the story of the work.</p>
             </div>
-            <div class="deck-card" style="padding: 10px 12px;">
+            <div class="deck-card" style="padding: 10px 12px; background: var(--bg-dark-card-inner);">
               <span class="card-label" style="color:var(--warm-ochre);">Cognitive Distinction</span>
               <p style="font-size: 10.5px; color: #DDD; line-height: 1.4;">A creative perspective that is unmistakably yours. Not slightly faster. Genuinely different.</p>
             </div>
-            <div class="deck-card" style="padding: 10px 12px;">
+            <div class="deck-card" style="padding: 10px 12px; background: var(--bg-dark-card-inner);">
               <span class="card-label" style="color:var(--warm-ochre);">Timeless Craft</span>
               <p style="font-size: 10.5px; color: #DDD; line-height: 1.4;">Instincts and principles that outlast every tool update: proportion, tension, meaning, restraint.</p>
             </div>
@@ -591,7 +634,7 @@
     <!-- SLIDE 04: HOW IT WORKS -->
     <section class="slide theme-light" id="slide-4" data-theme="light">
       <main class="canvas">
-        <div style="display:flex; flex-direction:column; width:100%; justify-content:space-between; min-height:100%; gap:12px;">
+        <div class="slide-inner-centered">
           <div>
             <div class="kicker">How It Works</div>
             <h2 style="font-family:var(--font-serif); font-size:clamp(22px, 2.6vw, 30px); margin-bottom:4px;">Three Layers. One Cycle.</h2>
@@ -646,7 +689,7 @@
     <!-- SLIDE 05: THE LIVING ROOM -->
     <section class="slide theme-light" id="slide-5" data-theme="light">
       <main class="canvas">
-        <div style="display:flex; flex-direction:column; width:100%; justify-content:space-between; min-height:100%; gap:12px;">
+        <div class="slide-inner-centered">
           <div>
             <div class="kicker">The Living Room</div>
             <h2 style="font-family:var(--font-serif); font-size:clamp(22px, 2.6vw, 30px);">Not a Safe Space. A Brave One.</h2>
@@ -694,59 +737,78 @@
       </footer>
     </section>
 
-    <!-- SLIDE 06: WORKSHOP SUITE (YOUR EXACT TEXT WITH CATEGORIES & CROSS-DISCIPLINARY CALLOUT) -->
+    <!-- SLIDE 06: WORKSHOP SUITE (ALL SPECIFIC SECTIONS PRESERVED) -->
     <section class="slide theme-light" id="slide-6" data-theme="light">
       <main class="canvas">
-        <div style="display:flex; flex-direction:column; width:100%; justify-content:space-between; min-height:100%; gap:10px;">
+        <div class="slide-inner-centered" style="gap:10px;">
           <div>
             <div class="kicker">The Workshop Suite</div>
-            <h2 style="font-family:var(--font-serif); font-size:clamp(20px, 2.4vw, 28px);">Where the eye develops.</h2>
+            <h2 style="font-family:var(--font-serif); font-size:clamp(18px, 2.2vw, 24px);">Where the eye develops.</h2>
           </div>
 
-          <!-- Cross-disciplinary callout module -->
-          <div style="background:var(--ink-black); color:#FFF; padding:12px 18px; border-left:3.5px solid var(--warm-ochre); border-radius:2px;">
-            <span style="font-family:var(--font-mono); font-size:9px; color:var(--warm-ochre); letter-spacing:0.15em; text-transform:uppercase;">The Cross-Disciplinary Difference</span>
-            <p style="font-family:var(--font-serif); font-size:13px; font-style:italic; margin:2px 0 4px 0; color:#FFF;">
-              "EMY does not ask designers to become architects. It asks them to understand how an architect thinks about the same fundamental problem and let that understanding expand their own eye."
-            </p>
-            <p style="font-size:10.5px; color:var(--ink-muted); line-height:1.4;">
-              Not expertise across fields. Intelligence across them. The capacity to find in one discipline something that unlocks another.
-            </p>
+          <!-- Top Callout: CQ Intro & Cross-Disciplinary Architecture -->
+          <div style="display:grid; grid-template-columns: 0.9fr 1.1fr; gap:10px;">
+            <div style="background:var(--bg-dark-card); color:#FFF; padding:10px 14px; border-left:3px solid var(--warm-ochre); border-radius:2px;">
+              <span style="font-family:var(--font-mono); font-size:8.5px; color:var(--warm-ochre); letter-spacing:0.12em; text-transform:uppercase;">Foundation</span>
+              <h4 style="font-family:var(--font-serif); font-size:13px; margin:2px 0; color:#FFF;">CQ Introduction</h4>
+              <p style="font-size:10px; color:#DDD; line-height:1.4;">Five modules. Self-paced mapping across all 5 dimensions. Complete your baseline assessment and first provocation.</p>
+            </div>
+            <div style="background:var(--ink-black); color:#FFF; padding:10px 14px; border-left:3px solid var(--wine-burgundy); border-radius:2px;">
+              <span style="font-family:var(--font-mono); font-size:8.5px; color:var(--wine-burgundy); letter-spacing:0.12em; text-transform:uppercase;">The Cross-Disciplinary Difference</span>
+              <p style="font-size:10px; font-style:italic; color:#FFF; margin:2px 0;">"EMY does not ask designers to become architects. It asks them to understand how an architect thinks to unlock their own eye."</p>
+            </div>
           </div>
 
-          <!-- Structured Course Pillars -->
+          <!-- Structured Course Pillars by Specific Category -->
           <div class="mobile-stack-4" style="display:grid; grid-template-columns:repeat(4, 1fr); gap:8px;">
             
-            <!-- Category 1: CQ Intro -->
-            <div class="deck-card" style="padding:10px 12px;">
-              <span class="card-label">01 / Foundation</span>
-              <h4 style="font-family:var(--font-serif); font-size:13px; margin:2px 0;">CQ Introduction</h4>
-              <p style="font-size:9.5px; font-family:var(--font-mono); color:var(--warm-ochre); margin-bottom:4px;">Five modules. One shift in how you see.</p>
-              <p style="font-size:10px; color:var(--ink-gray); line-height:1.4;">Self-paced journey through all 5 dimensions. Complete an assessment, respond to your first provocation, and map where your CQ is ready to grow.</p>
+            <!-- KNOW YOURSELF FIRST -->
+            <div class="deck-card" style="padding:10px 12px; gap:8px;">
+              <span class="card-label">01 / Know Yourself First</span>
+              <div class="course-pill-card">
+                <h5>Design and Self</h5>
+                <p>Five weeks. One honest mirror. Self-discovery through color, restraint, and making without outcome.</p>
+              </div>
+              <div class="course-pill-card">
+                <h5>Design and Voice</h5>
+                <p>Five weeks. A confident, personal creative point of view to walk into any room and own it.</p>
+              </div>
             </div>
 
-            <!-- Category 2: Know Yourself First -->
-            <div class="deck-card" style="padding:10px 12px;">
-              <span class="card-label">02 / Know Yourself First</span>
-              <h4 style="font-family:var(--font-serif); font-size:13px; margin:2px 0;">Self & Voice</h4>
-              <p style="font-size:9.5px; font-family:var(--font-mono); color:var(--warm-ochre); margin-bottom:4px;">Two 5-Week Modules</p>
-              <p style="font-size:10px; color:var(--ink-gray); line-height:1.4;"><strong>Design & Self:</strong> Making without outcome for genuine self-discovery.<br><strong>Design & Voice:</strong> Develop a confident creative POV to walk into any room and own it.</p>
+            <!-- DEVELOP YOUR PRACTICE -->
+            <div class="deck-card" style="padding:10px 12px; gap:8px;">
+              <span class="card-label">02 / Develop Your Practice</span>
+              <div class="course-pill-card">
+                <h5>Design and Work</h5>
+                <p>Five weeks. Thinking layer applied to professional practice: intention before execution & cultural reading.</p>
+              </div>
+              <div class="course-pill-card">
+                <h5>Design and Story</h5>
+                <p>Five weeks. Uncover the narrative underneath your work to pitch, propose, and position with conviction.</p>
+              </div>
             </div>
 
-            <!-- Category 3: Practice & Depth -->
-            <div class="deck-card" style="padding:10px 12px;">
-              <span class="card-label">03 / Practice & Depth</span>
-              <h4 style="font-family:var(--font-serif); font-size:13px; margin:2px 0;">Work, Story, Time & Ethics</h4>
-              <p style="font-size:9.5px; font-family:var(--font-mono); color:var(--warm-ochre); margin-bottom:4px;">Four 5-Week Modules</p>
-              <p style="font-size:10px; color:var(--ink-gray); line-height:1.4;"><strong>Work & Story:</strong> Intention before execution & narrative clarity.<br><strong>Time & Ethics:</strong> Asking the questions that outlast the brief and turn good designers into necessary ones.</p>
+            <!-- GO DEEPER -->
+            <div class="deck-card" style="padding:10px 12px; gap:8px;">
+              <span class="card-label">03 / Go Deeper</span>
+              <div class="course-pill-card">
+                <h5>Design and Time</h5>
+                <p>Five weeks. Thinking beyond the deadline: permanence, what survives, and choosing why you make.</p>
+              </div>
+              <div class="course-pill-card">
+                <h5>Design and Ethics</h5>
+                <p>Five weeks. Asking difficult questions before starting: who this serves, what it costs, and responsibility.</p>
+              </div>
             </div>
 
-            <!-- Category 4: Restore and Renew -->
-            <div class="deck-card" style="padding:10px 12px; border-color:var(--wine-burgundy);">
-              <span class="card-label" style="color:var(--wine-burgundy);">04 / Restore and Renew</span>
-              <h4 style="font-family:var(--font-serif); font-size:13px; margin:2px 0;">Design & Wellbeing</h4>
-              <p style="font-size:9.5px; font-family:var(--font-mono); color:var(--wine-burgundy); margin-bottom:4px;">Half or Full Day Intensive</p>
-              <p style="font-size:10px; color:var(--ink-gray); line-height:1.4;">Reconnect with the curiosity, thinking, and feeling that brought you to creative work. For individuals and organizations across every sector.</p>
+            <!-- RESTORE AND RENEW -->
+            <div class="deck-card" style="padding:10px 12px; border-color:var(--wine-burgundy); justify-content:flex-start; gap:8px;">
+              <span class="card-label" style="color:var(--wine-burgundy);">04 / Restore & Renew</span>
+              <div class="course-pill-card" style="height:100%; border-color:rgba(139,26,43,0.3);">
+                <h5 style="color:var(--wine-burgundy);">Design and Wellbeing</h5>
+                <p style="margin-bottom:6px;"><strong>Half day or full day.</strong> One room that remembers why it matters.</p>
+                <p>Provocation, making, and honest reflection to help individuals and teams reconnect with the raw curiosity and feeling that brought them to design.</p>
+              </div>
             </div>
 
           </div>
@@ -758,18 +820,21 @@
       </footer>
     </section>
 
-    <!-- SLIDE 07: JOIN / INVITATION -->
+    <!-- SLIDE 07: JOIN / INVITATION (NEW HEADLINE & BYLINE HIERARCHY) -->
     <section class="slide theme-dark" id="slide-7" data-theme="dark">
       <main class="canvas">
-        <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; max-width:760px; margin:0 auto; width:100%;">
-          <img src="emy-logo.png" alt="EMY Logo" class="brand-logo" style="height:48px; margin-bottom:20px; filter:invert(1) brightness(1.8);">
+        <div class="slide-inner-centered" style="align-items:center; text-align:center; max-width:840px;">
+          <img src="emy-logo.png" alt="EMY Logo" class="brand-logo" style="height:48px; margin-bottom:14px; filter:invert(1) brightness(1.8);">
           <div class="kicker" style="justify-content:center; color:var(--warm-ochre);">The Invitation</div>
-          <h1 style="font-family:var(--font-serif); font-size:clamp(28px, 4vw, 48px); line-height:1.15; font-weight:400; color:#FFF; margin-bottom:16px;">
-            The eye never lies.<br>It only goes quiet.
+          
+          <h1 style="font-family:var(--font-serif); font-size:clamp(26px, 3.4vw, 42px); line-height:1.18; font-weight:400; color:#FFF; margin-bottom:16px;">
+            The Living Room Is Open.<br>The conversation has begun. See you there.
           </h1>
-          <p style="font-size:14px; line-height:1.6; color:var(--ink-muted); margin-bottom:24px; max-width:620px;">
-            When someone has been teaching you not to listen to it. EMY exists to turn the volume back up. The living room is open. The conversation has already begun.
+          
+          <p style="font-size:14px; line-height:1.65; color:var(--ink-muted); margin-bottom:24px; max-width:680px;">
+            The eye never lies. It only goes quiet. When someone has been teaching you not to listen to it. EMY exists to turn the volume back up.
           </p>
+          
           <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-bottom:20px;">
             <a href="mailto:hello@emydesignlab.com?subject=Waitlist%20Inquiry" class="action-btn" style="background:var(--warm-ochre); border-color:var(--warm-ochre); color:#141518; font-weight:600;">Join The Waitlist &rarr;</a>
             <a href="mailto:hello@emydesignlab.com?subject=Partner%20Inquiry" class="action-btn" style="background:transparent; border-color:rgba(255,255,255,0.25);">Partner With EMY &rarr;</a>
@@ -780,7 +845,7 @@
         </div>
       </main>
       <footer class="slide-footer">
-        <span>Masterclass makes you a spectator of someone else's mastery. EMY makes you more intelligent in your own practice. See you there.</span>
+        <span>Masterclass makes you a spectator of someone else's mastery. EMY makes you more intelligent in your own practice.</span>
         <span>emydesignlab.com</span>
       </footer>
     </section>
