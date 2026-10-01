@@ -11,7 +11,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Schibsted+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<style>/* EMY Design Lab · v3, single-file GitHub Pages edition
+<style>/* EMY Design Lab · v4, single-file GitHub Pages edition
    Paper, ink and deliberately placed type. Content is in index.html.
    Fonts are linked from Google Fonts; no font files are distributed. */
 :root {
@@ -134,15 +134,15 @@ main { flex: 1; outline: none; }
 .beige { background: var(--paper-deep); }
 .three { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 48px; }
 
-/* Why: a single-line statement, followed by three unnumbered principles. */
+/* Why: statement and principles match the What-page .grid3 .name typography. */
 .page-why > .manifesto-layout { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.03fr); gap: clamp(60px, 9vw, 144px) !important; align-items: start; }
 .manifesto-heading { position: sticky; top: calc(var(--sticky-height, var(--header-height)) + 48px); gap: 32px; }
 .manifesto-heading .tagline { font-size: clamp(42px, 4.6vw, 70px); }
 .manifesto-heading::after { content: ''; width: 34px; height: 34px; border: 1px solid var(--burgundy); border-right-width: 10px; border-radius: 50%; margin-top: 18px; }
 .page-why .prose { padding-top: 49px; }
 .page-why .band .stack { gap: 48px; }
-.page-why .band .h-l { max-width: none; font-size: clamp(37px, 4.6vw, 72px); white-space: nowrap; }
-.point { border-top: 1px solid #bd7777; padding-top: 26px; font: 400 clamp(26px, 2.6vw, 38px)/1.2 var(--display); letter-spacing: -.015em; }
+.page-why .band .h-l { max-width: none; font-size: clamp(26px, 2.3vw, 33px); line-height: 1.16; letter-spacing: -.01em; white-space: nowrap; }
+.point { border-top: 1px solid #bd7777; padding-top: 26px; font: 400 clamp(26px, 2.3vw, 33px)/1.16 var(--display); letter-spacing: -.01em; }
 
 /* What: heading and explanatory paragraph form one column; circle at right. */
 .page-what > .wrap.sec { gap: 28px; }
@@ -312,7 +312,7 @@ details.fa[open] .fa-body { animation: detail-reveal .28s var(--ease); }
   .manifesto-heading { position: static; }.manifesto-heading .tagline { max-width: 12em; font-size: clamp(44px, 6.8vw, 61px); }
   .manifesto-heading::after { display: none; }
   .page-why .prose { padding-top: 0; margin-left: 18%; }.page-why .prose .beat { margin-top: 0; }
-  .three { gap: 24px; }.point { font-size: 27px; }
+  .three { gap: 24px; }.point { font-size: 26px; }
   .method-intro { grid-template-columns: 1fr; gap: 44px; }
   .method-copy .h-l { max-width: 11em; font-size: 65px; }
   .method-copy .lede { max-width: 39em; }
@@ -365,8 +365,8 @@ details.fa[open] .fa-body { animation: detail-reveal .28s var(--ease); }
   .page-why > .manifesto-layout { gap: 36px !important; }.manifesto-heading { gap: 26px; }
   .manifesto-heading .tagline { font-size: clamp(42px, 10.7vw, 60px); line-height: 1.13; }
   .page-why .prose { margin-left: 0; }.prose { font-size: 15px; line-height: 1.85; gap: 23px; }.prose .beat { font-size: 39px; }
-  .page-why .band .h-l { font-size: 37px; white-space: normal; }
-  .page-why .band .stack { gap: 34px; }.three { grid-template-columns: 1fr; gap: 27px; }.point { padding-top: 20px; font-size: 29px; }
+  .page-why .band .h-l { font-size: 27px; white-space: normal; }
+  .page-why .band .stack { gap: 34px; }.three { grid-template-columns: 1fr; gap: 27px; }.point { padding-top: 20px; font-size: 27px; }
   .method-copy { gap: 23px; }.method-copy .h-l { font-size: clamp(48px, 11.8vw, 65px); }
   .method-copy .lede { font-size: 15px; }.cycle text { font-size: 43px; }
   .page-what .beige > .wrap.stack { gap: 52px; }.page-what .beige .stack { gap: 28px; }
